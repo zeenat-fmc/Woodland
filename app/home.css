@@ -17,7 +17,7 @@
         color:var(--ivory); background:transparent; border:1px solid var(--line-brass);
     }
     .hero-cta-outline a:hover{ background:var(--ivory); color:var(--bg); }
-    .hero-link{ font-size:11px; text-transform:uppercase; letter-spacing:.18em; color:var(--ivory-dim); border-bottom:1px solid var(--line-brass); padding-bottom:6px; }
+    .hero-link{ font-size:11px; text-transform:uppercase; letter-spacing:.18em; color:var(--ivory-dim); border-bottom:1px solid var(--line-brass);  }
     .hero-link:hover{ color:var(--brass-deep); }
     .hero-wa-line{
         display:inline-flex; align-items:center; gap:10px; margin-top:26px; font-size:14px;
@@ -34,12 +34,6 @@
     .door-backdrop{ position:absolute; inset:0; z-index:1; }
     .door-backdrop img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.05); }
     .door-stage{ position:absolute; inset:0; z-index:3; display:flex; perspective:2400px; }
-    /* flex-basis (not a plain width:50%) so the two halves are sized by
-       flexbox's distribution algorithm instead of two independently
-       rounded percentages — this is what was causing a hairline seam
-       between the leaves at certain screen widths/zoom levels. The 1px
-       negative margin on the left leaf is a small guaranteed overlap so
-       no gap can ever show even in a worst-case rounding scenario. */
     .door-leaf{ flex:1 1 50%; min-width:0; height:100%; overflow:hidden; position:relative; }
     .door-leaf img{ width:200%; height:100%; object-fit:cover; }
     .door-leaf.left{ transform-origin:left center; margin-right:-1px; }
@@ -70,14 +64,14 @@
     .trust-item .lbl{ margin-top:8px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ivory-dim); }
 
     /* ---- Intro ---- */
-    .story-layout{ display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center; }
-    .story-img{ position:relative; aspect-ratio:5/4; overflow:hidden; clip-path:inset(100% 0 0 0); box-shadow:var(--shadow); }
-    .story-img img{ width:100%; height:100%; object-fit:cover; transform:scale(1.25); }
+    .story-layout{height: 40vh; display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center;margin-top: 50px;}
+    .story-img{ position:relative; aspect-ratio:5/6; overflow:hidden; clip-path:inset(100% 0 0 0); box-shadow:var(--shadow); }
+    .story-img img{ width:100%; height:80%; object-fit:cover; transform:scale(1.25); }
     .story-text h2{ font-size:clamp(36px,4vw,54px); margin-bottom:28px; }
     .story-text p{ font-size:16px; color:var(--ivory-dim); line-height:1.85; max-width:520px; margin-bottom:18px; }
 
     /* ---- Bento "why choose us" ---- */
-    .bento{ display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:26px; }
+    .bento{ height:60vh; grid-template-columns:repeat(4,1fr); grid-auto-rows:170px; gap:26px; }
     .bento-card{ background:var(--panel); box-shadow:var(--shadow-sm); padding:32px; display:flex; flex-direction:column; justify-content:flex-end; transition:.4s var(--ease); }
     .bento-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
     .bento-card.wide{ grid-column:span 2; }
@@ -565,6 +559,8 @@
 .why-woodland-section {
   position: relative;
   overflow: hidden;
+  height: 160vh;
+  margin-top: -90px;
 }
 
 .why-woodland-section::before {
@@ -1762,7 +1758,9 @@
 @media (max-width: 1100px) {
 
   .why-woodland-container {
-    width: min(100% - 50px, 900px);
+    width: min(100% - 50px, 800px);
+
+  
   }
 
   .why-woodland-heading {

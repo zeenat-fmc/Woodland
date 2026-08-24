@@ -73,7 +73,7 @@ useEffect(() => {
             PET · PPH · CCP
           </span>
           <p className="hero-title serif"  style={{ fontSize: "36px", lineHeight: 1.8, color: "var(--brown-900)" }} id="heroTitle">
-           <em>Doors, Refined</em>
+           <em>Doors, Redefined</em>
           </p>
           <h1 className="hero-title serif" id="heroTitle">
             Engineered Doors, Made for Pakistan.
@@ -260,7 +260,7 @@ useEffect(() => {
         <div className="container">
           <div className="story-layout">
             <div className="story-img img-reveal">
-              <img src="/1.jpeg" alt="WoodLand door detail" style={{ width: "100%", aspectRatio: "4/5" }} />
+              <img src="/1.jpeg" alt="WoodLand door detail" style={{ aspectRatio: "4/5" }} />
             </div>
 
             <div className="story-text" data-reveal>
@@ -285,6 +285,7 @@ useEffect(() => {
                 strength, and functionality from contemporary interiors to
                 elegant commercial spaces.
               </p>
+              
 
               <a href="/our-story" className="btn">
                 More about WoodLand
@@ -417,7 +418,7 @@ useEffect(() => {
           <span className="why-engineered-line"></span>
 
           <p>
-            <strong>03</strong> engineered panel systems
+            <strong></strong> engineered panel systems
             <br />
             <span>PET · PPH · CCP</span>
           </p>
@@ -447,7 +448,7 @@ useEffect(() => {
       ===================================================== */}
 
       <section className="section">
-        <div className="container">
+        <div className="container" >
           <div
             data-reveal
             style={sectionHeadingStyle}
@@ -475,7 +476,7 @@ useEffect(() => {
               </h3>
 
               <p>
-                A dense, fully sealed panel core built for wet areas —
+                A dense, fully sealed panel core built for wet areas
                 bathrooms, kitchens and utility spaces where timber simply
                 can&apos;t compete.
               </p>
@@ -503,7 +504,7 @@ useEffect(() => {
               </h3>
 
               <p>
-                Our premium finish line — a refined surface texture and depth
+                Our premium finish line a refined surface texture and depth
                 of colour that reads closest to natural wood grain.
               </p>
             </div>
@@ -785,6 +786,7 @@ useEffect(() => {
               </div>
             </a>
 
+
             <a
               href={`/products/${featured[2].slug}`}
               className="feat-card c3"
@@ -820,7 +822,7 @@ useEffect(() => {
           LOCK SOLUTIONS
       ===================================================== */}
 
-      <section
+      {/* <section
         className="section"
         style={{
           paddingTop: "20px",
@@ -879,7 +881,7 @@ useEffect(() => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* =====================================================
           TRUST CHECKLIST
@@ -907,7 +909,7 @@ useEffect(() => {
             </h2>
 
             <p style={sectionSubStyle}>
-              Practical engineering, modern design and dependable service —
+              Practical engineering, modern design and dependable service
               from choosing your door to getting it fitted.
             </p>
           </div>
@@ -1087,7 +1089,7 @@ useEffect(() => {
             </h2>
 
             <p style={sectionSubStyle}>
-              Answer 4 quick questions — we&apos;ll WhatsApp you back with
+              Answer 4 quick questions. We&apos;ll WhatsApp you back with
               pricing.
             </p>
           </div>
