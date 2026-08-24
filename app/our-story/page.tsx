@@ -30,7 +30,7 @@ export default function OurStoryPage() {
             impression of a space.
           </h1>
           <p className="kicker">
-            Timeless design, reliable quality, and lasting durability —
+            Timeless design, reliable quality, and lasting durability
             engineered for modern living.
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function OurStoryPage() {
       <section className="split">
         <div className="split-img img-reveal">
           <img
-            src="c:\Users\Zeenat\Downloads\a.avif"
+            src="9.jpeg"
             alt="Door panel material"
           />
         </div>
@@ -120,7 +120,7 @@ export default function OurStoryPage() {
             Built to outlast the elements.
           </h2>
           <p>
-            Instead of relying on solid timber — which swells, cracks, and
+            Instead of relying on solid timber which swells, cracks, and
             needs repainting — every WoodLand door is built from engineered
             PET, PPH, or CCP panels, sealed against moisture from the core
             out.

@@ -76,8 +76,8 @@ export default function Footer({
                 lineHeight: 1.8,
               }}
             >
-              Water-resistant, termite-proof PET, PPH &amp; CCP doors — plus
-              complete lock solutions — for modern Pakistani homes and
+              Water-resistant, termite-proof PET, PPH &amp; CCP doors plus
+              complete lock solutions for modern Pakistani homes and
               businesses.
             </p>
           </div>

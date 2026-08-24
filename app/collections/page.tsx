@@ -52,7 +52,7 @@ export default function CollectionsPage() {
           </h1>
 
           <p className="kicker">
-            PET, PPH and CCP panel doors — every one 100% water resistant,
+            PET, PPH and CCP panel doors every one 100% water resistant,
             termite proof, and finished to never need paint.
           </p>
         </div>

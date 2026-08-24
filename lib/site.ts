@@ -14,7 +14,7 @@ export const SITE = {
   whatsappNumber: "923427043613",
   email: "sales@woodland.pk",
   address: "Plot 14, Industrial Triangle, Rawalpindi, Punjab, Pakistan",
-  hours: "Monday – Saturday, 10am – 7pm",
+  hours: "Monday - Saturday, 10am - 7pm",
   // TODO: replace with the real Google Maps share link for the showroom.
   mapsUrl: "https://maps.google.com/?q=Industrial+Triangle+Rawalpindi",
 };

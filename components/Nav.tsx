@@ -12,7 +12,7 @@ export default function Nav({ active }: { active?: ActivePage }) {
       <nav className="site-nav" id="siteNav">
         <div className="nav-inner">
           <a href="/" className="logo">
-            <img src="/logo-icon.png" alt="WoodLand" />
+            <img src="/icon.png" alt="WoodLand" />
             <em>WoodLand</em>
           </a>
           <div className="nav-links">

@@ -1,3 +1,4 @@
+"use client";
 import Loader from "@/components/Loader";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -6,6 +7,7 @@ import ScrollAnimations from "@/components/ScrollAnimations";
 import { getProductBySlug } from "@/lib/products";
 import { waLink } from "@/lib/site";
 import "./home.css";
+import { useEffect, useState } from "react";
 
 const sectionHeadingStyle = {
   textAlign: "center" as const,
@@ -38,6 +40,24 @@ export default function HomePage() {
     .filter(Boolean) as NonNullable<
     ReturnType<typeof getProductBySlug>
   >[];
+  const heroImages = [
+  "/hero.png",
+  "/1.jpeg",
+  "/2.jpeg",
+  "/3.jpeg",
+  "/4.jpeg",
+  "/5.jpeg",
+];
+
+const [heroIndex, setHeroIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setHeroIndex((prev) => (prev + 1) % heroImages.length);
+  }, 3500);
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <>
@@ -52,13 +72,15 @@ export default function HomePage() {
           <span className="hero-eyebrow" id="heroEyebrow">
             PET · PPH · CCP
           </span>
-
+          <p className="hero-title serif"  style={{ fontSize: "36px", lineHeight: 1.8, color: "var(--brown-900)" }} id="heroTitle">
+           <em>Doors, Redefined</em>
+          </p>
           <h1 className="hero-title serif" id="heroTitle">
-            Engineered Doors, <em>Made for Pakistan</em>.
+            Engineered Doors, Made for Pakistan.
           </h1>
 
           <p className="hero-sub" id="heroSub">
-            Water-resistant · Termite-resistant · Low maintenance. Built so
+            Water-resistant, Termite-resistant, Low maintenance. Built so
             you never have to think about your door again.
           </p>
 
@@ -74,7 +96,7 @@ export default function HomePage() {
 
           <a
             href={waLink(
-              "Hi WoodLand! Here is my door size — please send me a quotation."
+              "Hi WoodLand! Here is my door size. Please send me a quotation."
             )}
             target="_blank"
             rel="noopener noreferrer"
@@ -101,26 +123,97 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hero-right">
-          <div className="door-backdrop">
-            <img src="/hero.png" alt="Modern entrance" />
-          </div>
+        <div
+  className="hero-right"
+  style={{
+    position: "relative",
+    overflow: "hidden",
+  }}
+>
+  <div
+    className="door-backdrop"
+    style={{
+      position: "relative",
+      width: "100%",
+      height: "100%",
+      minHeight: "560px",
+      overflow: "hidden",
+      borderRadius: "2px",
+    }}
+  >
+    {heroImages.map((image, index) => (
+      <img
+        key={image}
+        src={image}
+        alt={`WoodLand engineered door ${index + 1}`}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+          opacity: heroIndex === index ? 1 : 0,
+          transform:
+            heroIndex === index
+              ? "scale(1)"
+              : "scale(1.04)",
+          transition:
+            "opacity 1.2s ease-in-out, transform 3.5s ease-in-out",
+          zIndex: heroIndex === index ? 2 : 1,
+        }}
+      />
+    ))}
 
-          {/* <div className="door-stage" id="doorStage">
-            <div className="door-leaf left">
-              <img src="/transition.png" alt="WoodLand door leaf" />
-            </div>
+    {/* Carousel indicators */}
+    <div
+      style={{
+        position: "absolute",
+        bottom: "22px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        display: "flex",
+        alignItems: "center",
+        gap: "7px",
+        zIndex: 10,
+        padding: "8px 12px",
+        borderRadius: "30px",
+        background: "rgba(20, 20, 15, 0.45)",
+        backdropFilter: "blur(8px)",
+      }}
+    >
+      {heroImages.map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          onClick={() => setHeroIndex(index)}
+          aria-label={`Show door image ${index + 1}`}
+          style={{
+            width: heroIndex === index ? "24px" : "7px",
+            height: "7px",
+            padding: 0,
+            border: "none",
+            borderRadius: "20px",
+            background:
+              heroIndex === index
+                ? "var(--ivory-light)"
+                : "rgba(255,255,255,0.45)",
+            cursor: "pointer",
+            transition: "all 0.35s ease",
+          }}
+        />
+      ))}
+    </div>
+  </div>
 
-            <div className="door-leaf right">
-              <img src="/transition.png" alt="WoodLand door leaf" />
-            </div>
-          </div> */}
+  {/* <div className="hero-right-tag" id="heroTag">
+    <div className="code">LB2601-15-122</div>
 
-          <div className="hero-right-tag" id="heroTag">
-            <div className="code">LB2601-15-122</div>
-            <div className="name serif">Polypropylene Homopolymer</div>
-          </div>
-        </div>
+    <div className="name serif">
+      Polypropylene Homopolymer
+    </div>
+  </div> */}
+</div>
       </section>
 
       {/* =====================================================
@@ -167,7 +260,7 @@ export default function HomePage() {
         <div className="container">
           <div className="story-layout">
             <div className="story-img img-reveal">
-              <img src="/1.jpeg" alt="WoodLand door detail" style={{ width: "100%", aspectRatio: "4/5" }} />
+              <img src="/1.jpeg" alt="WoodLand door detail" style={{ aspectRatio: "4/5" }} />
             </div>
 
             <div className="story-text" data-reveal>
@@ -192,6 +285,7 @@ export default function HomePage() {
                 strength, and functionality from contemporary interiors to
                 elegant commercial spaces.
               </p>
+              
 
               <a href="/our-story" className="btn">
                 More about WoodLand
@@ -275,6 +369,7 @@ export default function HomePage() {
         <img
           src="/4.jpeg"
           alt="WoodLand engineered door"
+          style={{ width: "100%", aspectRatio: "4/5" }}
         />
 
         <div className="why-door-badge">
@@ -323,7 +418,7 @@ export default function HomePage() {
           <span className="why-engineered-line"></span>
 
           <p>
-            <strong>03</strong> engineered panel systems
+            <strong></strong> engineered panel systems
             <br />
             <span>PET · PPH · CCP</span>
           </p>
@@ -353,7 +448,7 @@ export default function HomePage() {
       ===================================================== */}
 
       <section className="section">
-        <div className="container">
+        <div className="container" >
           <div
             data-reveal
             style={sectionHeadingStyle}
@@ -381,7 +476,7 @@ export default function HomePage() {
               </h3>
 
               <p>
-                A dense, fully sealed panel core built for wet areas —
+                A dense, fully sealed panel core built for wet areas
                 bathrooms, kitchens and utility spaces where timber simply
                 can&apos;t compete.
               </p>
@@ -409,7 +504,7 @@ export default function HomePage() {
               </h3>
 
               <p>
-                Our premium finish line — a refined surface texture and depth
+                Our premium finish line a refined surface texture and depth
                 of colour that reads closest to natural wood grain.
               </p>
             </div>
@@ -534,7 +629,7 @@ export default function HomePage() {
           <div className="space-grid stagger-grid">
             <div className="space-card img-reveal">
               <img
-                src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800"
+                src="1.jpeg"
                 alt="Bedroom door installation"
               />
 
@@ -546,7 +641,7 @@ export default function HomePage() {
 
             <div className="space-card img-reveal">
               <img
-                src="https://images.unsplash.com/photo-1605883705077-8d3d3cebe78c?q=80&w=800"
+                src="2.jpeg"
                 alt="Villa door installation"
               />
 
@@ -558,7 +653,7 @@ export default function HomePage() {
 
             <div className="space-card img-reveal">
               <img
-                src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=800"
+                src="3.jpeg"
                 alt="Office door installation"
               />
 
@@ -570,7 +665,7 @@ export default function HomePage() {
 
             <div className="space-card img-reveal">
               <img
-                src="https://images.unsplash.com/photo-1779727279604-19ebb58b8b83?q=80&w=800"
+                src="4.jpeg"
                 alt="Hotel corridor door installation"
               />
 
@@ -582,7 +677,7 @@ export default function HomePage() {
 
             <div className="space-card img-reveal">
               <img
-                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800"
+                src="5.jpeg"
                 alt="Apartment door installation"
               />
 
@@ -691,6 +786,7 @@ export default function HomePage() {
               </div>
             </a>
 
+
             <a
               href={`/products/${featured[2].slug}`}
               className="feat-card c3"
@@ -726,7 +822,7 @@ export default function HomePage() {
           LOCK SOLUTIONS
       ===================================================== */}
 
-      <section
+      {/* <section
         className="section"
         style={{
           paddingTop: "20px",
@@ -785,7 +881,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* =====================================================
           TRUST CHECKLIST
@@ -813,7 +909,7 @@ export default function HomePage() {
             </h2>
 
             <p style={sectionSubStyle}>
-              Practical engineering, modern design and dependable service —
+              Practical engineering, modern design and dependable service
               from choosing your door to getting it fitted.
             </p>
           </div>
@@ -993,7 +1089,7 @@ export default function HomePage() {
             </h2>
 
             <p style={sectionSubStyle}>
-              Answer 4 quick questions — we&apos;ll WhatsApp you back with
+              Answer 4 quick questions. We&apos;ll WhatsApp you back with
               pricing.
             </p>
           </div>
