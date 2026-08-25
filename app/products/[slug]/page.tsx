@@ -83,11 +83,11 @@ export default function ProductPage({
                 </div>
                 <div className="spec-item">
                   <h5>Water Resistance</h5>
-                  <p>Yes — sealed core</p>
+                  <p>Yes sealed core</p>
                 </div>
                 <div className="spec-item">
                   <h5>Termite Resistance</h5>
-                  <p>Yes — no timber core</p>
+                  <p>Yes no timber core</p>
                 </div>
                 <div className="spec-item">
                   <h5>Scratch Resistance</h5>
@@ -111,7 +111,7 @@ export default function ProductPage({
               <div className="product-note" style={{ marginTop: 0, marginBottom: "34px" }}>
                 <strong>Available sizes, colours &amp; finishes</strong> — this
                 photo shows the standard {product.size} panel. Other sizes,
-                colours and finishes may be available — ask on WhatsApp for
+                colours and finishes may be available ask on WhatsApp for
                 the current options and warranty terms.
               </div>
 
@@ -139,14 +139,14 @@ export default function ProductPage({
               <div className="product-note">
                 Product photo sourced from the manufacturer&apos;s catalogue.
                 Finish and colour may vary slightly from the physical
-                sample — visit the showroom to confirm before ordering.
+                sample visit the showroom to confirm before ordering.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {related.length > 0 && (
+      {/* {related.length > 0 && (
         <section className="section" style={{ background: "var(--bg-soft)" }}>
           <div className="container">
             <div className="related-heading">
@@ -176,7 +176,7 @@ export default function ProductPage({
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       <Footer />
     </>

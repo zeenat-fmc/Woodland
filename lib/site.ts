@@ -1,28 +1,22 @@
-// Central place for contact details used across the site (nav, hero,
-// product pages, footer, WhatsApp links). Change once here, it updates
-// everywhere.
-//
-// ⚠️ IMPORTANT: WHATSAPP_NUMBER below reuses the placeholder landline
-// number from the original template ("+92 51 123 45678"), which is a
-// Rawalpindi/Islamabad *landline* format — landlines generally can't run
-// WhatsApp. Before this goes live, replace it with the real WhatsApp
-// Business mobile number (format: 923XXXXXXXXX, no "+", no spaces).
+// Single source of truth for contact details / brand color used across
+// the site (nav, top bar, footer, hero, product pages, estimate widget).
 
 export const SITE = {
-  phoneDisplay: "+92 342 7043613",
-  // TODO: replace with the real WhatsApp Business number before launch.
-  whatsappNumber: "923427043613",
-  email: "sales@woodland.pk",
-  address: "Plot 14, Industrial Triangle, Rawalpindi, Punjab, Pakistan",
-  hours: "Monday - Saturday, 10am - 7pm",
-  // TODO: replace with the real Google Maps share link for the showroom.
-  mapsUrl: "https://maps.google.com/?q=Industrial+Triangle+Rawalpindi",
+  phoneDisplay: "+92 300 1234567",
+  // ⚠️ PLACEHOLDER — replace with the real WhatsApp Business number:
+  // country code + number, no +, no spaces, no dashes (e.g. "923001234567").
+  whatsappNumber: "923001234567",
+  email: "info@woodlanddoors.pk",
+  address: "123 Example Road, Lahore, Pakistan",
+  hours: "Mon - Sat: 10:00 AM - 7:00 PM",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent("123 Example Road, Lahore, Pakistan"),
+  facebookUrl: "https://www.facebook.com/",
+  instagramUrl: "https://www.instagram.com/",
 };
 
-/**
- * Builds a wa.me deep link that opens WhatsApp with a pre-filled message.
- * Works on both mobile (opens the app) and desktop (opens WhatsApp Web).
- */
+/** Builds a wa.me link that opens WhatsApp with a pre-filled message. */
 export function waLink(message: string): string {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
