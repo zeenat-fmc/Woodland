@@ -106,61 +106,51 @@ export default function HomePage() {
   const realSpacesRef = useRef<HTMLDivElement>(null);
   const realSpacesTrackRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const section = realSpacesRef.current;
-    const track = realSpacesTrackRef.current;
+ useEffect(() => {
+  const section = realSpacesRef.current;
+  const track = realSpacesTrackRef.current;
+  if (!section || !track) return;
 
-    if (!section || !track) return;
+  let ticking = false;
 
-    const handleWheel = (e: WheelEvent) => {
-      const rect = section.getBoundingClientRect();
+  const update = () => {
+    const rect = section.getBoundingClientRect();
+    const scrollableDistance = section.offsetHeight - window.innerHeight;
+    if (scrollableDistance <= 0) { ticking = false; return; }
 
-      const sectionInView =
-        rect.top <= 0 && rect.bottom >= window.innerHeight;
+    let progressPx = -rect.top;
+    progressPx = Math.max(0, Math.min(scrollableDistance, progressPx));
+    const progress = progressPx / scrollableDistance;
 
-      if (!sectionInView) return;
+    const maxTrackScroll = track.scrollWidth - (track.parentElement?.offsetWidth ?? window.innerWidth);
+    track.style.transform = `translateX(${-progress * maxTrackScroll}px)`;
 
-      const maxScroll = track.scrollWidth - window.innerWidth;
+    const indicator = section.querySelector<HTMLElement>(".real-spaces-scroll-indicator span");
+    if (indicator) {
+      const trackWidth = 300; // matches .real-spaces-scroll-indicator width in CSS
+      const thumbWidth = 55;
+      indicator.style.transform = `translateX(${progress * (trackWidth - thumbWidth)}px)`;
+    }
 
-      if (maxScroll <= 0) return;
+    ticking = false;
+  };
 
-      const currentScroll = window.scrollY - section.offsetTop;
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  };
 
-      const maxSectionScroll =
-        section.offsetHeight - window.innerHeight;
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
 
-      const goingDown = e.deltaY > 0;
-      const goingUp = e.deltaY < 0;
-
-      const atStart = currentScroll <= 0;
-      const atEnd = currentScroll >= maxSectionScroll - 5;
-
-      if ((goingDown && !atEnd) || (goingUp && !atStart)) {
-        e.preventDefault();
-
-        const newScroll = Math.max(
-          0,
-          Math.min(
-            maxSectionScroll,
-            currentScroll + e.deltaY
-          )
-        );
-
-        window.scrollTo({
-          top: section.offsetTop + newScroll,
-          behavior: "auto",
-        });
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, {
-      passive: false,
-    });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
+}, []);
   const doorTypes = [
     {
       key: "pet",
@@ -185,16 +175,16 @@ export default function HomePage() {
     },
   ];
 
-  const heroImages = ["/hero.png", "/1.jpeg", "/2.jpeg", "/3.jpeg", "/4.jpeg", "/5.jpeg"];
+  const heroImages = ["/home1.png", "/home2.png", "/home3.png", "/home4.png","heropage.png",  "/5.jpeg"];
   const [heroIndex, setHeroIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3500);
-    return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+// speed: 3500 → 2200 (zyada tez switch)
+useEffect(() => {
+  const interval = setInterval(() => {
+    setHeroIndex((prev) => (prev + 1) % heroImages.length);
+  }, 2200);
+  return () => clearInterval(interval);
+}, []);
 
   // ---- "Get Your Door Quote" mini form (bottom 3-column section) ----
   const [qName, setQName] = useState("");
@@ -225,7 +215,7 @@ export default function HomePage() {
 
       {/*  HERO*/}
       <section className="hero" id="home">
-        <div className="hero-left">
+        <div className="hero-left" style={{marginTop:"190px"}}>
           {/* <span className="hero-eyebrow" id="heroEyebrow" style={{fontWeight:400, fontSize:"16px"}}>
             PET, PPH, CCP
           </span> */}
@@ -281,25 +271,27 @@ export default function HomePage() {
         </div>
 
         <div className="hero-right" style={{ position: "relative", overflow: "hidden" }}>
-          <div
-            className="door-backdrop"
-            style={{ position: "relative", width: "100%", height: "100%", minHeight: "560px", overflow: "hidden", borderRadius: "2px" }}
-          >
-            {heroImages.map((image, index) => (
-              <img
-                key={image}
-                src={image}
-                alt={`WoodLand engineered door ${index + 1}`}
-                style={{
-                  position: "absolute", inset: 0, width: "100%", height: "100%",
-                  objectFit: "cover", objectPosition: "center",
-                  opacity: heroIndex === index ? 1 : 0,
-                  transform: heroIndex === index ? "scale(1)" : "scale(1.04)",
-                  transition: "opacity 1.2s ease-in-out, transform 3.5s ease-in-out",
-                  zIndex: heroIndex === index ? 2 : 1,
-                }}
-              />
-            ))}
+        <div
+  className="door-backdrop"
+  style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden", borderRadius: "2px" }}
+  // ⬆ minHeight:"560px" hata diya — yehi extra height ki wajah thi
+>
+  {heroImages.map((image, index) => (
+    <img
+      key={image}
+      src={image}
+      alt={`WoodLand engineered door ${index + 1}`}
+      style={{
+        position: "absolute", inset: 0, width: "100%", height: "100%",
+        objectFit: "cover", objectPosition: "center",
+        opacity: heroIndex === index ? 1 : 0,
+        transform: heroIndex === index ? "scale(1)" : "scale(1.04)",
+        transition: "opacity .8s ease-in-out, transform 2.2s ease-in-out", // tez transition
+        zIndex: heroIndex === index ? 2 : 1,
+      }}
+    />
+  ))}
+
 
             <div className="hero-carousel-dots">
               {heroImages.map((_, index) => (

@@ -1,11 +1,7 @@
-export type ActivePage =
-  | "home"
-  | "doors"
-  | "locks"
-  | "gallery"
-  | "about"
-  
-  
+"use client";
+import { useEffect, useState } from "react";
+
+export type ActivePage = "home" | "doors" | "locks" | "gallery" | "about";
 
 const IconFB = () => (
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.36C16.2 4.32 15.2 4.24 14 4.24c-2.4 0-4 1.46-4 4.16V10.5H7.5v3H10V21h3.5z"/></svg>
@@ -38,12 +34,12 @@ const IconPhone = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="15" height="15"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
 );
 
-function TopBar() {
+function TopBar({ hidden }: { hidden: boolean }) {
   return (
-    <div className="top-bar">
+    <div className={`top-bar${hidden ? " hide" : ""}`}>
       <div className="top-bar-inner">
-          <div className="top-bar-left">
-          <span><IconLeaf /> Msssde for Pakistan&apos;s Climate</span>
+        <div className="top-bar-left">
+          <span><IconLeaf /> Made for Pakistan&apos;s Climate</span>
           <span><IconDrop /> Water Resistant</span>
           <span><IconBug /> Termite Resistant</span>
           <span><IconClock /> Low Maintenance</span>
@@ -61,11 +57,27 @@ function TopBar() {
 }
 
 export default function Nav({ active }: { active?: ActivePage }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+  }, [menuOpen]);
+
+  const cls = (page: ActivePage) => (active === page ? "active" : undefined);
+
   return (
     <>
-      <TopBar />
+      <TopBar hidden={scrolled} />
 
-      <nav className="site-nav" id="siteNav">
+      <nav className={`site-nav${scrolled ? " scrolled" : ""}`} id="siteNav">
         <div className="nav-inner">
           <a href="/" className="logo">
             <img src="/green.png" alt="WoodLand" />
@@ -76,11 +88,11 @@ export default function Nav({ active }: { active?: ActivePage }) {
           </a>
 
           <div className="nav-links">
-            <a href="/" className={active === "home" ? "active" : undefined}>Home</a>
-            <a href="/our-story" className={active === "about" ? "active" : undefined}>About Us</a>
+            <a href="/" className={cls("home")}>Home</a>
+            <a href="/our-story" className={cls("about")}>About Us</a>
 
             <div className="nav-dropdown">
-              <a href="/collections" className={active === "doors" ? "active" : undefined}>
+              <a href="/collections" className={cls("doors")}>
                 Our Doors <IconChevron />
               </a>
               <div className="nav-dropdown-menu">
@@ -91,18 +103,11 @@ export default function Nav({ active }: { active?: ActivePage }) {
               </div>
             </div>
 
-            {/* NOTE: if the /gallery route has been removed from this
-                project, either delete this link or point it elsewhere. */}
-            <a href="/gallery" className={active === "gallery" ? "active" : undefined}>Gallery</a>
-
+            <a href="/gallery" className={cls("gallery")}>Gallery</a>
             <a href="/#why-woodland">Why Woodland</a>
 
             <div className="nav-dropdown">
               <a href="#">Resources <IconChevron /></a>
-              {/* ⚠️ placeholder links — these resource pages don't exist
-                  in the project yet (Door Care Guide / Installation Guide
-                  / Warranty / FAQs). Build the pages first, then swap "#"
-                  for the real routes. */}
               <div className="nav-dropdown-menu">
                 <a href="#">Door Care Guide</a>
                 <a href="#">Installation Guide</a>
@@ -111,24 +116,29 @@ export default function Nav({ active }: { active?: ActivePage }) {
               </div>
             </div>
 
-
             <a href="/contact" className="nav-cta">
               Get a Quote <IconPhone />
             </a>
           </div>
 
-          <button className="nav-toggle" id="navToggle" aria-label="Menu" type="button">
+          <button
+            className={`nav-toggle${menuOpen ? " open" : ""}`}
+            id="navToggle"
+            aria-label="Menu"
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+          >
             <span></span><span></span><span></span>
           </button>
         </div>
       </nav>
 
-      <div className="mobile-menu" id="mobileMenu">
-        <a href="/">Home</a>
-        <a href="/our-story">About Us</a>
-        <a href="/collections">Our Doors</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/#why-woodland">Why Woodland</a>
+      <div className={`mobile-menu${menuOpen ? " open" : ""}`} id="mobileMenu">
+        <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
+        <a href="/our-story" onClick={() => setMenuOpen(false)}>About Us</a>
+        <a href="/collections" onClick={() => setMenuOpen(false)}>Our Doors</a>
+        <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
+        <a href="/#why-woodland" onClick={() => setMenuOpen(false)}>Why Woodland</a>
       </div>
     </>
   );

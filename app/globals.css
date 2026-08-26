@@ -419,54 +419,7 @@ nav.site-nav{
 }
 
 
-/* Main navigation */
 
-.nav-links{
-    display:flex;
-
-    align-items:center;
-
-    gap:32px;
-    
-}
-
-
-/* All main nav links including dropdown triggers */
-
-.nav-links > a,
-.nav-dropdown > a{
-    font-family:'Inter', sans-serif;
-
-    font-size:14px;
-
-    font-weight:500;
-
-    color:var(--ivory);
-
-    position:relative;
-
-    padding-bottom:4px;
-
-    transition:.3s var(--ease);
-
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
-
-    white-space:nowrap;
-}
-
-
-/* Hover + active */
-
-.nav-links > a:hover,
-.nav-links > a.active,
-.nav-dropdown > a:hover,
-.nav-dropdown > a.active{
-    color:var(--brass);
-}
 
 
 /* DROPDOWN TRIGGER ICON */
@@ -605,44 +558,41 @@ nav.site-nav{
    NAV CTA
    ================================================================ */
 
+/* ================================================================
+   NAV CTA
+   ================================================================ */
+
 .nav-cta{
     display:inline-flex !important;
-
     align-items:center;
-
     justify-content:center;
-
     gap:9px;
 
     font-family:'Inter', sans-serif;
-
     font-size:14px !important;
-
     font-weight:500;
 
     color:#fff !important;
-
     background:var(--brass);
 
     padding:12px 21px;
-
     border-radius:60px;
 
-    transition:.3s var(--ease) !important;
+    transition:
+        background .3s var(--ease),
+        color .3s var(--ease) !important;
 }
 
 .nav-cta:hover{
-    background:var(--brass-deep);
+    background:#fff;
+    color:var(--brass) !important;
 }
 
 .nav-cta svg{
     width:15px;
-
     height:15px;
-
     flex-shrink:0;
 }
-
 
 /* ================================================================
    LOGO
@@ -1360,4 +1310,302 @@ font-weight: 550;
                 64px
             );
     }
+}
+/* start */
+/* TOP BAR — ab fixed hai, scroll pe slide-up hokar chhup jaata hai */
+/* ================================================================
+   FINAL NAVIGATION OVERRIDES
+   ================================================================ */
+
+/* TOP BAR — fixed */
+.top-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:1002;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+
+    background:var(--brass-deep);
+    color:rgba(255,255,255,.85);
+
+    font-family:'Inter', sans-serif;
+    font-size:14.5px;
+
+    transition:
+        transform .4s var(--ease),
+        opacity .4s var(--ease);
+}
+
+.top-bar.hide{
+    transform:translateY(-100%);
+    opacity:0;
+    pointer-events:none;
+}
+
+.top-bar-inner{
+    max-width:1440px;
+    margin:0 auto;
+    padding:0 40px;
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+
+/* ================================================================
+   NAV
+   ================================================================ */
+
+nav.site-nav{
+    position:fixed;
+
+    top:42px;
+    left:0;
+
+    width:100%;
+    z-index:1000;
+
+    padding:16px 40px;
+
+    background:transparent;
+    border-bottom:1px solid transparent;
+    box-shadow:none;
+
+    transition:
+        top .4s var(--ease),
+        background .4s var(--ease),
+        border-color .4s var(--ease),
+        box-shadow .4s var(--ease),
+        padding .4s var(--ease);
+}
+
+
+/* Scrolled navbar */
+
+nav.site-nav.scrolled{
+    top:0;
+
+    padding:12px 40px;
+
+    background:var(--panel);
+    border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-sm);
+}
+
+
+/* ================================================================
+   NAV LINKS
+   ================================================================ */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+
+/* All normal links */
+
+.nav-links > a:not(.nav-cta),
+.nav-dropdown > a{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+
+    padding:9px 16px;
+
+    border-radius:30px;
+
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    font-weight:500;
+
+    background:var(--brass);
+    color:#fff !important;
+
+    white-space:nowrap;
+
+    transition:
+        background .3s var(--ease),
+        color .3s var(--ease);
+}
+
+
+/* Hover */
+
+.nav-links > a:not(.nav-cta):hover,
+.nav-dropdown > a:hover{
+    background:#fff;
+    color:var(--brass) !important;
+}
+
+
+/* Active */
+
+.nav-links > a:not(.nav-cta).active,
+.nav-dropdown > a.active{
+    background:#fff;
+    color:var(--brass) !important;
+}
+
+
+/* Active + hover stays white */
+
+.nav-links > a:not(.nav-cta).active:hover,
+.nav-dropdown > a.active:hover{
+    background:#fff;
+    color:var(--brass) !important;
+}
+
+
+/* ================================================================
+   DROPDOWN
+   ================================================================ */
+
+.nav-dropdown{
+    position:relative;
+}
+
+.nav-dropdown > a{
+    cursor:pointer;
+}
+
+
+/* Chevron */
+
+.nav-dropdown > a svg{
+    width:12px;
+    height:12px;
+
+    flex:0 0 12px;
+
+    margin-top:1px;
+
+    color:currentColor;
+
+    transition:
+        transform .25s var(--ease),
+        color .25s var(--ease);
+}
+
+
+/* Rotate arrow */
+
+.nav-dropdown:hover > a svg{
+    transform:rotate(180deg);
+}
+
+
+/* ================================================================
+   DROPDOWN MENU
+   ================================================================ */
+
+.nav-dropdown-menu{
+    position:absolute;
+
+    top:calc(100% + 18px);
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        translateY(8px);
+
+    background:var(--panel);
+
+    box-shadow:var(--shadow);
+
+    border-radius:8px;
+
+    padding:8px;
+
+    min-width:175px;
+
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:.25s var(--ease);
+}
+
+
+/* Show dropdown */
+
+.nav-dropdown:hover .nav-dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* Dropdown links */
+
+.nav-dropdown-menu a{
+    display:flex;
+    align-items:center;
+
+    width:100%;
+
+    padding:9px 13px;
+
+    border-radius:5px;
+
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    font-weight:400;
+    line-height:1.2;
+
+    background:transparent;
+    color:var(--ivory-dim);
+
+    white-space:nowrap;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        padding-left .2s ease;
+}
+
+
+.nav-dropdown-menu a:hover{
+    background:var(--bg-soft);
+    color:var(--brass);
+    padding-left:16px;
+}
+
+
+/* ================================================================
+   MOBILE
+   ================================================================ */
+
+@media (max-width:640px){
+
+    nav.site-nav{
+        top:0;
+    }
+
+}
+
+
+/* ================================================================
+   HERO
+   ================================================================ */
+
+.hero{
+    padding-top:0;
 }
