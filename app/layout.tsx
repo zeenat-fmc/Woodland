@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "WoodLand - Doors Redefined | PET, PPH & CCP Door Solutions",
   description:
-    "Water-resistant, termite-proof PET, PPH & CCP doors — plus complete lock solutions — for modern Pakistani homes and businesses.",
+    "Water-resistant, termite-proof PET, PPH & CCP doors plus complete lock solutions for modern Pakistani homes and businesses.",
 };
 
 export default function RootLayout({

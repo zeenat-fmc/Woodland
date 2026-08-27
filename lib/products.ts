@@ -15,20 +15,33 @@ export interface Product {
   nw: string;
   features: string[];
   image: string;
+  images?: string[];
 }
-
 export const products: Product[] = [
-  {
-    slug: "26p1-10-lb205",
-    code: "26P1-10-LB205",
-    category: "pet",
-    materialShort: "PET",
-    materialLong: "Polyethylene Terephthalate",
-    size: "900×2100mm",
-    nw: "50kg",
-    features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
-    image: "/products/26p1-10-lb205.jpg",
-  },
+ {
+  slug: "26p1-10-lb205",
+  code: "26P1-10-LB205",
+  category: "pet",
+  materialShort: "PET",
+  materialLong: "Polyethylene Terephthalate",
+  size: "900×2100mm",
+  nw: "50kg",
+  features: [
+    "100% Water Resistant",
+    "Scratch Resistant Surface",
+    "Termite Proof",
+    "No Polish or Paint Required",
+    "Warp & Weather Resistant"
+  ],
+  image: "/products/26p1-10-lb205.jpg",
+  images: [
+    "/3.jpeg",
+    "/lock.png",
+    "/design.png",
+    "/hinge.jpg",
+    "/hinge.jpg"
+  ],
+},
   {
     slug: "26p1-10-lb206",
     code: "26P1-10-LB206",

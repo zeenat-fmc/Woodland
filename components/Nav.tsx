@@ -1,19 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export type ActivePage = "home" | "doors" | "locks" | "gallery" | "about";
+export type ActivePage = "home" | "doors" | "locks"  | "about";
 
 const IconFB = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.36C16.2 4.32 15.2 4.24 14 4.24c-2.4 0-4 1.46-4 4.16V10.5H7.5v3H10V21h3.5z"/></svg>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.36C16.2 4.32 15.2 4.24 14 4.24c-2.4 0-4 1.46-4 4.16V10.5H7.5v3H10V21h3.5z"/></svg>
 );
 const IconIG = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
 );
 const IconYT = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="5.5" width="20" height="13" rx="3" fill="none" stroke="currentColor" strokeWidth="1.6"/><path d="M10.5 9.5v5l4.5-2.5z"/></svg>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="2" y="5.5" width="20" height="13" rx="3" fill="none" stroke="currentColor" strokeWidth="1.6"/><path d="M10.5 9.5v5l4.5-2.5z"/></svg>
 );
 const IconTikTok = () => (
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3c.4 2.1 1.8 3.6 4 3.9v2.6c-1.5 0-2.8-.4-4-1.2v6.4a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v2.7a2.6 2.6 0 1 0 1.8 2.5V3H14z"/></svg>
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 3c.4 2.1 1.8 3.6 4 3.9v2.6c-1.5 0-2.8-.4-4-1.2v6.4a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v2.7a2.6 2.6 0 1 0 1.8 2.5V3H14z"/></svg>
 );
 const IconDrop = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2s7 8.5 7 13a7 7 0 1 1-14 0c0-4.5 7-13 7-13z"/></svg>
@@ -103,8 +103,8 @@ export default function Nav({ active }: { active?: ActivePage }) {
               </div>
             </div>
 
-            <a href="/gallery" className={cls("gallery")}>Gallery</a>
-            <a href="/#why-woodland">Why Woodland</a>
+            {/* <a href="/gallery" className={cls("gallery")}>Gallery</a> */}
+            <a href="/why-woodland">Why Woodland</a>
 
             <div className="nav-dropdown">
               <a href="#">Resources <IconChevron /></a>
@@ -138,7 +138,7 @@ export default function Nav({ active }: { active?: ActivePage }) {
         <a href="/our-story" onClick={() => setMenuOpen(false)}>About Us</a>
         <a href="/collections" onClick={() => setMenuOpen(false)}>Our Doors</a>
         <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
-        <a href="/#why-woodland" onClick={() => setMenuOpen(false)}>Why Woodland</a>
+        <a href="/why-woodland" onClick={() => setMenuOpen(false)}>Why Woodland</a>
       </div>
     </>
   );

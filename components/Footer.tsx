@@ -66,8 +66,8 @@ export default function Footer({
           <a href="/">Home</a>
           <a href="/our-story">About Us</a>
           <a href="/collections">Our Doors</a>
-          {showShowroomLink && <a href="/gallery">Gallery</a>}
-          <a href="/#why-woodland">Why Woodland</a>
+          {/* {showShowroomLink && <a href="/gallery">Gallery</a>} */}
+          <a href="/why-woodland">Why Woodland</a>
           <a href="/contact">Contact Us</a>
         </div>
 
@@ -102,11 +102,6 @@ export default function Footer({
             <IconClock /> {SITE.hours}
           </span>
 
-          {/* Static map thumbnail — swap for a real Google Maps embed
-              (iframe with your API key) whenever you're ready. */}
-          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer-map">
-            <IconPin />
-          </a>
         </div>
       </div>
 
