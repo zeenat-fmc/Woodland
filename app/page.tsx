@@ -170,12 +170,12 @@ const WHY_ITEMS = [
 ];
 
 const REAL_SPACES = [
-  { image: "/1.jpeg", room: "Bathroom", material: "PET Door" },
-  { image: "/2.jpeg", room: "Bedroom", material: "PPH Door" },
-  { image: "/3.jpeg", room: "Living Room", material: "CCP Door" },
-  { image: "/4.jpeg", room: "Office", material: "PPH Door" },
-  { image: "/6.jpeg", room: "Villa Project", material: "CCP Door" },
-  { image: "/9.jpeg", room: "Apartment", material: "PET Door" },
+  { image: "/washroom.png", room: "Bathroom", material: "PET Door" },
+  { image: "/bedroom.png", room: "Bedroom", material: "PPH Door" },
+  { image: "/living room.png", room: "Living Room", material: "CCP Door" },
+  { image: "/office.png", room: "Office", material: "PPH Door" },
+  { image: "/villa.png", room: "Villa Project", material: "CCP Door" },
+  { image: "/apartment.png", room: "Apartment", material: "PET Door" },
 ];
 
 const PROCESS_STEPS = [
@@ -842,7 +842,7 @@ export default function HomePage() {
                 </a>
               </div>
               <div className="wl-about__media img-reveal">
-                <img src="/2.jpeg" alt="A WoodLand door fitted in a home" loading="lazy" decoding="async" />
+                <img src="/3.jpeg" alt="A WoodLand door fitted in a home" loading="lazy" decoding="async" />
               </div>
             </article>
 
