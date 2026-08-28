@@ -1,4 +1,30 @@
-import { SITE, waLink } from "@/lib/site";
+import { SITE } from "@/lib/site";
+
+const IconFB = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.36C16.2 4.32 15.2 4.24 14 4.24c-2.4 0-4 1.46-4 4.16V10.5H7.5v3H10V21h3.5z"/></svg>
+);
+const IconIG = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+);
+const IconYT = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="2" y="5.5" width="20" height="13" rx="3"/><path d="M10.5 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>
+);
+const IconWA = () => (
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.25.62 4.44 1.8 6.36L3.5 29l7.8-2.24a11.98 11.98 0 0 0 4.72.96h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.65 3 16.02 3zm0 21.9h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-4.63 1.33 1.36-4.51-.24-.37a9.86 9.86 0 0 1-1.53-5.24C5.56 9.5 10.28 4.8 16.02 4.8c5.74 0 10.44 4.7 10.44 10.44 0 5.75-4.7 10.44-10.44 10.44v.02z"/></svg>
+);
+const IconPin = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+);
+const IconPhone = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+);
+const IconMail = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+);
+const IconClock = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+);
+
 
 export default function Footer({
   showShowroomLink = true,
@@ -6,105 +32,91 @@ export default function Footer({
   showShowroomLink?: boolean;
 }) {
   return (
-    <footer>
-      <div className="container">
-        <div className="footer-contact-block" data-reveal>
-          <div className="footer-contact-item">
-            <span className="ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+    <footer className="site-footer">
+      <div className="container footer-inner">
+        <div className="footer-brand">
+          <a href="/" className="footer-logo">
+            <img src="/white.png" alt="WoodLand" />
+            <span>
+              WOODLAND
+              <em>Doors, Redefined.</em>
             </span>
-            <div>
-              <h6>Showroom</h6>
-              <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer">
-                {SITE.address}
-              </a>
-            </div>
-          </div>
-          <div className="footer-contact-item">
-            <span className="ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
-            </span>
-            <div>
-              <h6>Phone</h6>
-              <a href={`tel:${SITE.whatsappNumber}`}>{SITE.phoneDisplay}</a>
-            </div>
-          </div>
-          <div className="footer-contact-item">
-            <span className="ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.77.46 3.45 1.35 4.95L2 22l5.29-1.39a9.86 9.86 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
-            </span>
-            <div>
-              <h6>WhatsApp</h6>
-              <a
-                href={waLink("Hi WoodLand! I'd like to ask about your doors.")}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chat with us
-              </a>
-            </div>
-          </div>
-          <div className="footer-contact-item">
-            <span className="ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            </span>
-            <div>
-              <h6>Email</h6>
-              <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-            </div>
-          </div>
-          <div className="footer-contact-item">
-            <span className="ico">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-            </span>
-            <div>
-              <h6>Hours</h6>
-              <span>{SITE.hours}</span>
-            </div>
+          </a>
+          <p>
+            Engineered doors made for Pakistan&apos;s climate and
+            contemporary lifestyle.
+          </p>
+          <div className="footer-social">
+            <a href={SITE.facebookUrl} aria-label="Facebook"><IconFB /></a>
+            <a href={SITE.instagramUrl} aria-label="Instagram"><IconIG /></a>
+            <a href="#" aria-label="YouTube"><IconYT /></a>
+            <a
+              href={`https://wa.me/${SITE.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+            >
+              <IconWA />
+            </a>
           </div>
         </div>
 
-        <div className="footer-inner">
-          <div>
-            <div className="footer-logo">
-              Wood<em>Land</em>
-            </div>
-            <p
-              style={{
-                color: "var(--ivory-dim)",
-                maxWidth: "300px",
-                lineHeight: 1.8,
-              }}
-            >
-              Water-resistant, termite-proof PET, PPH &amp; CCP doors plus
-              complete lock solutions for modern Pakistani homes and
-              businesses.
-            </p>
-          </div>
-          <div className="footer-col">
-            <h5>Catalogue</h5>
-            <a href="/collections">PET Doors</a>
-            <a href="/collections">PPH Doors</a>
-            <a href="/collections">CCP Doors</a>
-            <a href="/door-locks">Door Locks</a>
-          </div>
-          <div className="footer-col">
-            <h5>Information</h5>
-            <a href="/our-story">About WoodLand</a>
-            <a href="/gallery">Gallery</a>
-            {showShowroomLink && <a href="/contact">Showroom</a>}
-            <a href="/contact">Contact</a>
-          </div>
-          <div className="footer-col">
-            <h5>Connect</h5>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="/contact">Email Us</a>
-          </div>
+        <div className="footer-col">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/our-story">About Us</a>
+          <a href="/collections">Our Doors</a>
+          {showShowroomLink && <a href="/gallery">Gallery</a>}
+          <a href="/#why-woodland">Why Woodland</a>
+          <a href="/contact">Contact Us</a>
         </div>
-        <div className="footer-bottom">
-          <span>© 2026 WOODLAND DOORS</span>
-          <span>MADE FOR PAKISTAN</span>
+
+        <div className="footer-col">
+          <h5>Our Doors</h5>
+          <a href="/collections">PET Doors</a>
+          <a href="/collections">PPH Doors</a>
+          <a href="/collections">CCP Doors</a>
+        </div>
+
+        <div className="footer-col">
+          {/* ⚠️ placeholder links — resource pages not built yet */}
+          <h5>Resources</h5>
+          <a href="#">Door Care Guide</a>
+          <a href="#">Installation Guide</a>
+          <a href="#">Warranty</a>
+          <a href="#">FAQs</a>
+        </div>
+
+        <div className="footer-col footer-contact-col">
+          <h5>Contact Us</h5>
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer-contact-line">
+            <IconPin /> {SITE.address}
+          </a>
+          <a href={`tel:${SITE.whatsappNumber}`} className="footer-contact-line">
+            <IconPhone /> {SITE.phoneDisplay}
+          </a>
+          <a href={`mailto:${SITE.email}`} className="footer-contact-line">
+            <IconMail /> {SITE.email}
+          </a>
+          <span className="footer-contact-line">
+            <IconClock /> {SITE.hours}
+          </span>
+
+          {/* Static map thumbnail — swap for a real Google Maps embed
+              (iframe with your API key) whenever you're ready. */}
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer-map">
+            <IconPin />
+          </a>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <div className="container footer-bottom-inner">
+          <span>© 2026 WoodLand Doors. All Rights Reserved.</span>
+          <div className="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+          </div>
         </div>
       </div>
     </footer>
