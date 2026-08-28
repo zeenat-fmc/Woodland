@@ -156,14 +156,19 @@ export default function OurStoryPage() {
 
           <div className="ceo-quote">
             <IconQuote />
-            <p className="serif">
-              [Add: a short quote from the founder about why WoodLand
-              exists]
+            <p className="serif" style={{fontSize:"15px"}}>
+             As the CEO of Woodland Door, it is my pleasure to welcome you to a world where craftsmanship, design, and timeless elegance come together. At Woodland Door, we believe that a door is more than just an entryway it is the first expression of a space, setting the tone for everything beyond it.
+
+Our journey began with a passion for creating beautifully crafted doors that combine exceptional quality, thoughtful design, and lasting durability. Every door we create reflects our dedication to precision, craftsmanship, and attention to detail, ensuring that each piece adds character and distinction to its surroundings.
+
+At Woodland Door, our mission is to help you transform your spaces with doors that feel as exceptional as the environments they become part of. From refined contemporary styles to timeless designs, we strive to create pieces that complement your vision while standing the test of time.
+
+Join us on our journey as we continue to redefine entrances, elevate interiors, and bring exceptional craftsmanship to every space one door at a time.
             </p>
           </div>
 
           <div className="ceo-person">
-            <span className="placeholder">[Add: Name]</span>
+            <span className="placeholder">Mian Laeeq</span>
             <span className="ceo-role">Founder &amp; CEO, WoodLand</span>
           </div>
         </div>
