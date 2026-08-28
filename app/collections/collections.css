@@ -1,887 +1,446 @@
-/* ============================================================================
-   WOODLAND — COLLECTIONS / CATALOGUE
-   Drop-in replacement for app/collections/collections.css (or wherever
-   ./collections.css lives).
+/* =========================================================
+   WOODLAND — COLLECTIONS
+   CLEAN / EDITORIAL / SIMPLE
+   ========================================================= */
 
-   Same design language as the rebuilt home.css. Everything is namespaced
-   under .wl so it can't leak into Nav, Footer or your other routes. The
-   token block reads YOUR globals.css variables first and only falls back to
-   these values if one is missing — your brand palette stays the source of
-   truth. This file is self-contained: it re-declares the shared .wl tokens
-   and primitives (identical to home.css) so the page renders correctly even
-   if home.css isn't loaded on this route.
-   ========================================================================= */
 
-.wl {
-  /* --- surfaces --- */
-  --wl-s0: var(--bg, #100f0b);
-  --wl-s1: var(--bg-soft, #17150f);
-  --wl-s2: var(--panel, #1f1c15);
-  --wl-s3: #262218;
+/* =========================================================
+   CATALOGUE SECTION
+   ========================================================= */
 
-  /* --- ink --- */
-  --wl-ink: var(--ivory, #f4f0e6);
-  --wl-ink-2: var(--ivory-dim, #b5ad9c);
-  --wl-ink-3: rgba(244, 240, 230, 0.42);
-
-  /* --- metal --- */
-  --wl-gold: var(--brass, #c39a5c);
-  --wl-gold-deep: var(--brass-deep, #9c7638);
-  --wl-gold-glow: rgba(195, 154, 92, 0.16);
-  --wl-gold-wash: rgba(195, 154, 92, 0.07);
-
-  /* --- lines --- */
-  --wl-hair: var(--line, rgba(244, 240, 230, 0.1));
-  --wl-hair-2: rgba(244, 240, 230, 0.055);
-
-  /* --- motion --- */
-  --wl-ease: var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
-  --wl-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* --- rhythm --- */
-  --wl-pad: clamp(20px, 4vw, 40px);
-  --wl-edge: max(clamp(20px, 4vw, 40px), calc((100vw - 1360px) / 2));
-  --wl-block: clamp(46px, 5vw, 78px);
-  --wl-r: 4px;
-  --wl-r-lg: 8px;
-
-  /* --- elevation --- */
-  --wl-lift: 0 30px 70px -34px rgba(0, 0, 0, 0.72);
-  --wl-lift-gold: 0 30px 70px -34px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--wl-gold-glow);
-
-  position: relative;
-  background: var(--wl-s0);
-  color: var(--wl-ink);
+.catalogue-section {
+    background: transparent;
 }
 
-/* Film grain — stops large dark areas looking flat. */
-.wl::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0.032;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
 }
 
-/* ============================================================================
-   PRIMITIVES  (shared with home.css — kept identical)
-   ========================================================================= */
+.filter-pill {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ivory-dim);
 
-.wl,
-.wl *,
-.wl *::before,
-.wl *::after {
-  box-sizing: border-box;
-}
+    padding: 9px 18px;
 
-/* If a browser lacks background-clip:text, gradient text would render
-   transparent (invisible). Fall back to flat gold. */
-@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
-  .wl-accent {
-    -webkit-text-fill-color: currentColor;
-    color: var(--wl-gold);
-  }
-}
+    border-radius: 999px;
 
-.wl-container {
-  width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0 var(--wl-pad);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
 }
 
-.wl-section {
-  position: relative;
-  padding: var(--wl-block) 0;
+.filter-pill:hover {
+    color: var(--ivory);
+    border-color: var(--brass);
+    transform: translateY(-1px);
 }
 
-.wl-sr {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.filter-pill.active {
+    background: var(--brass);
+    border-color: var(--brass);
+    color: #fff;
 }
 
-.wl :focus-visible {
-  outline: 2px solid var(--wl-gold);
-  outline-offset: 3px;
-  border-radius: 2px;
+
+/* =========================================================
+   RESULT HEADER
+   ========================================================= */
+
+.catalogue-result-head {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
 }
 
-/* --- eyebrow --- */
-.wl-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--wl-gold);
-}
-.wl-eyebrow::before {
-  content: "";
-  width: 26px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.55;
-  flex-shrink: 0;
-}
-.wl-eyebrow--center {
-  justify-content: center;
-}
-.wl-eyebrow--center::after {
-  content: "";
-  width: 26px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.55;
-  flex-shrink: 0;
+.catalogue-result-head h2 {
+    letter-spacing: -.025em;
 }
 
-/* --- headings --- */
-.wl-h2 {
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(29px, 3.6vw, 50px);
-  line-height: 1.08;
-  letter-spacing: -0.022em;
-  color: var(--wl-ink);
-  margin: 14px 0 0;
-}
-.wl-accent {
-  font-style: normal;
-  background: linear-gradient(96deg, var(--wl-gold-deep), var(--wl-gold) 42%, #e8cd9b 72%, var(--wl-gold));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: var(--wl-gold);
+.catalogue-result-head .eyebrow {
+    display: block;
 }
 
-/* --- buttons --- */
-.wl-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px 26px;
-  border: 1px solid transparent;
-  border-radius: var(--wl-r);
-  font-family: inherit;
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.055em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
-  transition: background 0.4s var(--wl-ease), border-color 0.4s var(--wl-ease),
-    color 0.4s var(--wl-ease), transform 0.4s var(--wl-ease), box-shadow 0.4s var(--wl-ease);
-}
-.wl-btn svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-.wl-btn__arrow {
-  transition: transform 0.4s var(--wl-ease);
-}
-.wl-btn:hover .wl-btn__arrow {
-  transform: translateX(4px);
-}
-.wl-btn__wa {
-  width: 17px;
-  height: 17px;
-  color: #25d366;
-}
-.wl-btn__wa--light {
-  color: #fff;
-}
-/* Sheen sweep on hover */
-.wl-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 -60%;
-  width: 45%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-  transform: skewX(-18deg);
-  transition: left 0.65s var(--wl-ease-out);
-  pointer-events: none;
-}
-.wl-btn:hover::after {
-  left: 130%;
-}
-.wl-btn--gold {
-  background: linear-gradient(135deg, var(--wl-gold), var(--wl-gold-deep));
-  color: #fff;
-  box-shadow: 0 14px 30px -16px rgba(195, 154, 92, 0.6);
-}
-.wl-btn--gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px -16px rgba(195, 154, 92, 0.72);
-}
-.wl-btn--line {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: var(--wl-hair);
-  color: var(--wl-ink);
-  backdrop-filter: blur(6px);
-}
-.wl-btn--line:hover {
-  border-color: var(--wl-gold);
-  background: var(--wl-gold-wash);
-  transform: translateY(-2px);
-}
-.wl-btn--sm {
-  padding: 12px 20px;
-  font-size: 11.5px;
+
+/* =========================================================
+   PRODUCT GRID
+   ========================================================= */
+
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 24px;
 }
 
-/* --- chips (hero facts) --- */
-.wl-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 10px;
-  border: 1px solid var(--wl-hair);
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.022);
-  font-size: 12.5px;
-  letter-spacing: 0.01em;
-  color: var(--wl-ink-2);
-  transition: border-color 0.35s var(--wl-ease), color 0.35s var(--wl-ease),
-    background 0.35s var(--wl-ease);
-}
-.wl-chip:hover {
-  border-color: var(--wl-gold);
-  color: var(--wl-ink);
-  background: var(--wl-gold-wash);
-}
-.wl-chip__icon {
-  display: inline-flex;
-  color: var(--wl-gold);
-}
-.wl-chip__icon svg {
-  width: 15px;
-  height: 15px;
+
+/* =========================================================
+   PRODUCT ITEM
+   ========================================================= */
+
+.cat-item {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+
+    min-width: 0;
+
+    animation: catalogueItemIn .55s cubic-bezier(.22,1,.36,1) both;
 }
 
-/* ============================================================================
-   PAGE HERO
-   Compact banner (not full-height). Top padding clears the fixed nav.
-   ========================================================================= */
+@keyframes catalogueItemIn {
 
-.wl-phero {
-  position: relative;
-  overflow: hidden;
-  min-height: clamp(340px, 52vh, 520px);
-  display: flex;
-  align-items: flex-end;
-  padding: clamp(120px, 16vh, 168px) 0 clamp(34px, 4.5vw, 58px);
-  background: var(--wl-s0);
-}
-.wl-phero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.wl-phero__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: saturate(1.02) contrast(1.02);
-  animation: wlPheroZoom 14s var(--wl-ease-out) both;
-}
-@keyframes wlPheroZoom {
-  from { transform: scale(1.08); }
-  to   { transform: scale(1); }
-}
-/* Scrim so the copy stays legible over any image */
-.wl-phero__scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(0deg, var(--wl-s0) 1%, rgba(201, 199, 191, 0.007) 34%, rgba(16, 15, 11, 0.2) 70%),
-    linear-gradient(90deg, rgba(16, 15, 11, 0.72), transparent 62%);
-}
-.wl-phero__inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-.wl-phero__title {
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(38px, 5.6vw, 78px);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--wl-ink);
-  margin: 16px 0 0;
-  max-width: 16ch;
-  animation: wlUp 0.9s 0.08s var(--wl-ease) both;
-}
-.wl-phero__sub {
-  max-width: 560px;
-  margin: 18px 0 0;
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--wl-ink-2);
-  animation: wlUp 0.9s 0.2s var(--wl-ease) both;
-}
-.wl-phero .wl-eyebrow {
-  animation: wlUp 0.9s var(--wl-ease) both;
-}
-.wl-phero__chips {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin: 24px 0 0;
-  padding: 0;
-  animation: wlUp 0.9s 0.32s var(--wl-ease) both;
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
 
-/* ============================================================================
-   CATALOGUE TOOLBAR  (filters + result head)
-   ========================================================================= */
 
-.wl-catalogue {
-  background:
-    radial-gradient(70% 50% at 82% 4%, rgba(195, 154, 92, 0.045), transparent 68%),
-    var(--wl-s0);
-}
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
 
-/* --- filters --- */
-.wl-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 0 0 clamp(22px, 2.6vw, 36px);
-}
-.wl-pill {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 12px 22px;
-  border: 1px solid var(--wl-hair);
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.02);
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--wl-ink-2);
-  cursor: pointer;
-  transition: color 0.35s var(--wl-ease), background 0.35s var(--wl-ease),
-    border-color 0.35s var(--wl-ease), transform 0.35s var(--wl-ease),
-    box-shadow 0.35s var(--wl-ease);
-}
-.wl-pill:hover {
-  color: var(--wl-ink);
-  border-color: rgba(195, 154, 92, 0.5);
-  transform: translateY(-2px);
-}
-.wl-pill.is-active {
-  color: #fff;
-  background: linear-gradient(135deg, var(--wl-gold), var(--wl-gold-deep));
-  border-color: transparent;
-  box-shadow: 0 10px 26px -12px rgba(195, 154, 92, 0.6);
-}
-.wl-pill.is-active:hover {
-  transform: translateY(-2px);
+.cat-item .img-reveal {
+    position: relative;
+    overflow: hidden;
+
+    background: transparent;
 }
 
-/* --- result head --- */
-.wl-result {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 20px;
-  margin-bottom: clamp(24px, 3vw, 40px);
-}
-.wl-result__count {
-  flex-shrink: 0;
-  font-size: 12.5px;
-  letter-spacing: 0.08em;
-  color: var(--wl-ink-3);
-}
-.wl-result__count b {
-  color: var(--wl-gold);
-  font-weight: 600;
+.cat-item .img-reveal img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    transition:
+        transform .8s cubic-bezier(.22,1,.36,1);
 }
 
-/* ============================================================================
-   PRODUCT GRID + CARDS
-   ========================================================================= */
-
-.wl-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(240px, 26vw, 300px), 1fr));
-  gap: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 30px);
+.cat-item:hover .img-reveal img {
+    transform: scale(1.035);
 }
 
-.wl-card {
-  --wl-card-accent: var(--wl-gold);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  animation: wlCardIn 0.55s var(--wl-ease) both;
-}
-.wl-card--pet { --wl-card-accent: #ded1b5; }
-.wl-card--pph { --wl-card-accent: #c39a5c; }
-.wl-card--ccp { --wl-card-accent: #a97b42; }
 
-/* ============================================================================
-   CAROUSEL  (one per product — 1..N images, controls only when N > 1)
-   ========================================================================= */
+/* =========================================================
+   PRODUCT INFO
+   ========================================================= */
 
-.wl-car {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border-radius: var(--wl-r);
-  background: var(--wl-s3);
-  touch-action: pan-y; /* vertical page scroll stays native; we handle swipe */
-}
-.wl-car__track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.6s var(--wl-ease);
-  will-change: transform;
-}
-.wl-car__slide {
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-}
-.wl-car__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.1s var(--wl-ease);
-}
-.wl-card:hover .wl-car__img {
-  transform: scale(1.05);
-}
-/* Placeholder shown only if a product has no image at all */
-.wl-car__ph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  color: var(--wl-ink-3);
-  background:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.02) 0 10px, transparent 10px 20px),
-    var(--wl-s2);
-}
-.wl-car__ph svg {
-  width: 34px;
-  height: 34px;
-  opacity: 0.5;
-}
-/* Inset hairline frame */
-.wl-car::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  box-shadow: inset 0 0 0 1px var(--wl-hair);
-  border-radius: inherit;
-  pointer-events: none;
+.item-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+    padding-bottom: 9px;
+
+    border-bottom: 1px solid var(--line);
 }
 
-/* --- arrows --- */
-.wl-car__btn {
-  position: absolute;
-  top: 50%;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  transform: translateY(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  background: rgba(16, 15, 11, 0.55);
-  color: #fff;
-  cursor: pointer;
-  opacity: 0;
-  backdrop-filter: blur(6px);
-  transition: opacity 0.35s var(--wl-ease), background 0.35s var(--wl-ease),
-    border-color 0.35s var(--wl-ease);
-}
-.wl-car__btn svg {
-  width: 16px;
-  height: 16px;
-}
-.wl-car__btn--prev {
-  left: 10px;
-}
-.wl-car__btn--prev svg {
-  transform: scaleX(-1);
-}
-.wl-car__btn--next {
-  right: 10px;
-}
-.wl-car__btn:hover {
-  background: rgba(16, 15, 11, 0.8);
-  border-color: var(--wl-gold);
-}
-.wl-card:hover .wl-car__btn {
-  opacity: 1;
-}
-.wl-car__btn:focus-visible {
-  opacity: 1;
-}
-/* Touch devices have no hover — keep the arrows visible */
-@media (hover: none) {
-  .wl-car__btn {
-    opacity: 1;
-  }
+.item-info h3 {
+    margin: 0;
+
+    font-size: 20px;
+
+    line-height: 1.1;
+
+    letter-spacing: -.02em;
 }
 
-/* --- dots --- */
-.wl-car__dots {
-  position: absolute;
-  bottom: 12px;
-  left: 0;
-  right: 0;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-}
-.wl-car__dot {
-  width: 6px;
-  height: 6px;
-  padding: 0;
-  border: none;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transition: width 0.35s var(--wl-ease), background 0.35s var(--wl-ease);
-}
-.wl-car__dot.is-active {
-  width: 18px;
-  background: var(--wl-card-accent);
+.item-info span {
+    flex-shrink: 0;
+
+    font-size: 9px;
+
+    color: var(--brass);
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
 }
 
-/* --- image counter --- */
-.wl-car__count {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  z-index: 3;
-  padding: 4px 9px;
-  border-radius: 100px;
-  background: rgba(16, 15, 11, 0.6);
-  backdrop-filter: blur(6px);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  color: #fff;
-}
-.wl-car__count i {
-  font-style: normal;
-  opacity: 0.5;
-  margin: 0 1px;
+
+/* =========================================================
+   SIZE
+   ========================================================= */
+
+.item-size {
+    margin-top: 8px;
+
+    color: var(--ivory-dim);
+
+    font-size: 10px;
+
+    letter-spacing: .04em;
 }
 
-/* --- card body (the product link) --- */
-.wl-card__body {
-  display: block;
-  padding-top: 16px;
-  text-decoration: none;
-  color: inherit;
-}
-.wl-card__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-}
-.wl-card__code {
-  margin: 0;
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(19px, 1.5vw, 23px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--wl-ink);
-  transition: color 0.35s var(--wl-ease);
-}
-.wl-card:hover .wl-card__code {
-  color: var(--wl-gold);
-}
-.wl-card__mat {
-  flex-shrink: 0;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--wl-gold);
-  white-space: nowrap;
-}
-.wl-card__size {
-  margin-top: 7px;
-  font-size: 12.5px;
-  color: var(--wl-ink-2);
-}
-.wl-card__feats {
-  list-style: none;
-  margin: 12px 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.wl-card__feats li {
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--wl-ink-2);
-  border: 1px solid var(--wl-hair);
-  border-radius: 3px;
-  padding: 5px 9px;
-}
-.wl-card__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 14px;
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--wl-ink-2);
-  transition: color 0.35s var(--wl-ease);
-}
-.wl-card__cta svg {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.35s var(--wl-ease);
-}
-.wl-card:hover .wl-card__cta {
-  color: var(--wl-gold);
-}
-.wl-card:hover .wl-card__cta svg {
-  transform: translateX(4px);
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.item-feats {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 10px;
 }
 
-@keyframes wlCardIn {
-  from { opacity: 0; transform: translateY(22px) scale(0.98); }
-  to   { opacity: 1; transform: none; }
+.item-feats span {
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .1em;
+
+    color: var(--ivory-dim);
+
+    padding-right: 7px;
+
+    border-right: 1px solid var(--line);
 }
 
-/* ============================================================================
-   EMPTY STATE
-   ========================================================================= */
-
-.wl-empty {
-  text-align: center;
-  padding: clamp(50px, 8vw, 100px) 20px;
-}
-.wl-empty__title {
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.1;
-  color: var(--wl-ink);
-  margin: 14px 0 24px;
+.item-feats span:last-child {
+    border-right: 0;
 }
 
-/* ============================================================================
+
+/* =========================================================
    SPEC BAND
-   ========================================================================= */
+   NO CARD / NO BACKGROUND
+   ========================================================= */
 
-.wl-specs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border: 1px solid var(--wl-hair);
-  border-radius: var(--wl-r-lg);
-  overflow: hidden;
-  background: linear-gradient(180deg, var(--wl-s2), var(--wl-s1));
-  box-shadow: var(--wl-lift), inset 0 1px 0 rgba(255, 255, 255, 0.035);
-}
-.wl-spec {
-  padding: clamp(24px, 2.4vw, 38px) clamp(16px, 1.6vw, 26px);
-  border-right: 1px solid var(--wl-hair-2);
-  text-align: center;
-}
-.wl-spec:last-child {
-  border-right: none;
-}
-.wl-spec__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-bottom: 14px;
-  border-radius: 50%;
-  color: var(--wl-gold);
-  background: var(--wl-gold-wash);
-  box-shadow: inset 0 0 0 1px rgba(195, 154, 92, 0.22);
-}
-.wl-spec__icon svg {
-  width: 21px;
-  height: 21px;
-}
-.wl-spec h4 {
-  margin: 0 0 8px;
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: var(--wl-ink);
-}
-.wl-spec p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--wl-ink-3);
+.spec-band {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    margin-top: 90px;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
-/* ============================================================================
+.spec {
+    padding: 25px 20px 25px 0;
+
+    border-right: 1px solid var(--line);
+}
+
+.spec + .spec {
+    padding-left: 20px;
+}
+
+.spec:last-child {
+    border-right: 0;
+}
+
+.spec h4 {
+    margin: 0 0 8px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--ivory);
+}
+
+.spec p {
+    margin: 0;
+
+    max-width: 170px;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    color: var(--ivory-dim);
+}
+
+
+/* =========================================================
    CTA
-   ========================================================================= */
+   ========================================================= */
 
-.wl-cta {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
-}
-.wl-cta__title {
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  color: var(--wl-ink);
-  margin: 14px 0 28px;
-}
-.wl-cta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
+.catalogue-cta {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: 80px auto 0;
 }
 
-/* ============================================================================
-   REVEAL SYSTEM
-   Class names kept identical to your ScrollAnimations component.
-   ========================================================================= */
+.catalogue-cta h2 {
+    font-size: clamp(34px, 4vw, 48px);
 
-.wl [data-reveal] {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.9s var(--wl-ease), transform 0.9s var(--wl-ease);
-}
-.wl [data-reveal].is-visible,
-.wl-reveal-all .wl [data-reveal] {
-  opacity: 1;
-  transform: none;
+    line-height: 1.08;
+
+    letter-spacing: -.03em;
+
+    margin: 12px 0 28px;
 }
 
-/* ============================================================================
-   RESPONSIVE
-   ========================================================================= */
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+
+[data-reveal] {
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
-  .wl-specs {
-    grid-template-columns: 1fr 1fr;
-  }
-  .wl-spec {
-    border-right: 1px solid var(--wl-hair-2);
-    border-bottom: 1px solid var(--wl-hair-2);
-  }
-  /* remove the trailing right border on the last column of each row */
-  .wl-spec:nth-child(2n) {
-    border-right: none;
-  }
+
+    .cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 42px 20px;
+    }
+
+    .spec-band {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .spec {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .spec:nth-child(2) {
+        border-right: 0;
+    }
+
+    .spec:nth-child(4) {
+        border-right: 0;
+    }
+
+    .spec:last-child {
+        grid-column: 1 / -1;
+
+        border-right: 0;
+        border-bottom: 0;
+    }
+
 }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 640px) {
-  /* filters become a horizontal swipe strip */
-  .wl-filters {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    scrollbar-width: none;
-  }
-  .wl-filters::-webkit-scrollbar {
-    display: none;
-  }
-  .wl-pill {
-    flex: 0 0 auto;
-  }
 
-  .wl-result {
-    align-items: flex-end;
-  }
+    .filters {
+        flex-wrap: nowrap;
 
-  .wl-specs {
-    grid-template-columns: 1fr;
-  }
-  .wl-spec,
-  .wl-spec:nth-child(2n) {
-    border-right: none;
-    border-bottom: 1px solid var(--wl-hair-2);
-  }
-  .wl-spec:last-child {
-    border-bottom: none;
-  }
-}
+        overflow-x: auto;
 
-@media (max-width: 440px) {
-  .wl-grid {
-    grid-template-columns: 1fr;
-  }
-  .wl-cta__actions .wl-btn {
-    width: 100%;
-  }
-}
+        padding-bottom: 14px;
 
-/* ============================================================================
-   SHARED KEYFRAMES  (identical to home.css; safe if both are loaded)
-   ========================================================================= */
+        scrollbar-width: none;
+    }
 
-@keyframes wlUp {
-  from { opacity: 0; transform: translateY(26px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    .filters::-webkit-scrollbar {
+        display: none;
+    }
 
-/* ============================================================================
-   REDUCED MOTION
-   ========================================================================= */
+    .filter-pill {
+        flex: 0 0 auto;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-  .wl *,
-  .wl *::before,
-  .wl *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .wl [data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .wl-phero__bg img {
-    animation: none;
-  }
+
+    .catalogue-result-head {
+        align-items: flex-end !important;
+    }
+
+    .catalogue-result-head h2 {
+        font-size: 28px !important;
+    }
+
+
+    .cat-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .item-info h3 {
+        font-size: 19px;
+    }
+
+
+    .spec-band {
+        grid-template-columns: 1fr;
+
+        margin-top: 60px;
+    }
+
+    .spec,
+    .spec + .spec {
+        padding: 20px 0;
+
+        border-right: 0;
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .spec:last-child {
+        border-bottom: 0;
+    }
+
+
+    .catalogue-cta {
+        margin-top: 60px;
+    }
+
 }
