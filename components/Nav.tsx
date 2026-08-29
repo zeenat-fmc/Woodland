@@ -138,7 +138,7 @@ export default function Nav({ active }: { active?: ActivePage }) {
         <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
         <a href="/our-story" onClick={() => setMenuOpen(false)}>About Us</a>
         <a href="/collections" onClick={() => setMenuOpen(false)}>Our Doors</a>
-        <a href="/services" onClick={() => setMenuOpen(false)}>Lock Services</a>
+        <a href="/door-lock-services" onClick={() => setMenuOpen(false)}>Lock Services</a>
         <a href="/why-woodland" onClick={() => setMenuOpen(false)}>Why Woodland</a>
       </div>
     </>
