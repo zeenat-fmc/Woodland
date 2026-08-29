@@ -79,12 +79,12 @@ export default function Footer({
         </div>
 
         <div className="footer-col">
-          {/* ⚠️ placeholder links — resource pages not built yet */}
+          {/*  placeholder links — resource pages not built yet */}
           <h5>Resources</h5>
-          <a href="#">Door Care Guide</a>
-          <a href="#">Installation Guide</a>
-          <a href="#">Warranty</a>
-          <a href="#">FAQs</a>
+          <a href="/resources">Door Care Guide</a>
+          <a href="/resources">Installation Guide</a>
+          <a href="/resources">Warranty</a>
+          <a href="/resources">FAQs</a>
         </div>
 
         <div className="footer-col footer-contact-col">
