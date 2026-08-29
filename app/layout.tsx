@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import VendorScripts from "@/components/VendorScripts";
 import WhatsAppButton from "@/components/WhatsappButton";
@@ -7,6 +8,13 @@ export const metadata: Metadata = {
   title: "WoodLand - Doors Redefined | PET, PPH & CCP Door Solutions",
   description:
     "Water-resistant, termite-proof PET, PPH & CCP doors plus complete lock solutions for modern Pakistani homes and businesses.",
+
+  // Prevent search engines from indexing the website
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
 };
 
 export default function RootLayout({
@@ -37,3 +45,4 @@ export default function RootLayout({
     </html>
   );
 }
+
