@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export type ActivePage = "home" | "doors" | "locks"  | "about";
+export type ActivePage = "home" | "doors" | "about" |"why-woodland" | "resources" |  "door-lock-services";
 
 const IconFB = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46H16.5V4.36C16.2 4.32 15.2 4.24 14 4.24c-2.4 0-4 1.46-4 4.16V10.5H7.5v3H10V21h3.5z"/></svg>
@@ -103,18 +103,19 @@ export default function Nav({ active }: { active?: ActivePage }) {
               </div>
             </div>
 
-            {/* <a href="/gallery" className={cls("gallery")}>Gallery</a> */}
+            <a href="/door-lock-services" className={cls("door-lock-services")}>Lock Services</a>
             <a href="/why-woodland">Why Woodland</a>
-
+             <a href="/resources" className={cls("resources")}>Resources</a>
+{/* 
             <div className="nav-dropdown">
-              <a href="#">Resources <IconChevron /></a>
+              <a href="/resources">Resources <IconChevron /></a>
               <div className="nav-dropdown-menu">
                 <a href="#">Door Care Guide</a>
                 <a href="#">Installation Guide</a>
                 <a href="#">Warranty</a>
                 <a href="#">FAQs</a>
               </div>
-            </div>
+            </div> */}
 
             <a href="/contact" className="nav-cta">
               Get a Quote <IconPhone />
@@ -137,7 +138,7 @@ export default function Nav({ active }: { active?: ActivePage }) {
         <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
         <a href="/our-story" onClick={() => setMenuOpen(false)}>About Us</a>
         <a href="/collections" onClick={() => setMenuOpen(false)}>Our Doors</a>
-        <a href="/gallery" onClick={() => setMenuOpen(false)}>Gallery</a>
+        <a href="/services" onClick={() => setMenuOpen(false)}>Lock Services</a>
         <a href="/why-woodland" onClick={() => setMenuOpen(false)}>Why Woodland</a>
       </div>
     </>

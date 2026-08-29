@@ -35,13 +35,12 @@ const principles = [
 ];
 
 const companyDetails = [
-  ["Ownership / Management", "[Add: owner / management team name(s)]"],
-  ["Based In", "Rawalpindi, Punjab, Pakistan"],
-  ["Manufacturing Location", "[Add: where doors are manufactured]"],
-  ["Years in Business", "[Add: year established]"],
+  ["Ownership / Management", "[ management team name(s)]"],
+  ["Based In", "Islamabad, Punjab, Pakistan"],
+  // ["Years in Business", "[Add: year established]"],
   ["Materials Used", "Engineered PET, PPH & CCP panels"],
   ["Showroom", SITE.address],
-  ["Warranty", "[Add: warranty period & terms]"],
+  ["Warranty", "[ warranty period & terms]"],
   ["Phone / WhatsApp", SITE.phoneDisplay],
   ["Email", SITE.email],
 ];
@@ -75,36 +74,48 @@ export default function OurStoryPage() {
       </section>
 
       {/* OUR STORY */}
-      <section className="story-section">
-        <div className="container story-inner" data-reveal>
-          <span className="eyebrow">Our Story</span>
+   ={/* OUR STORY */}
+<section className="story-section">
+  <div className="container story-inner" data-reveal>
 
-          <h2 className="serif">
-            Doors that don't just connect spaces they define them.
-          </h2>
+    <div className="story-heading">
+      <span className="eyebrow">Our Story</span>
 
-          <p>
-            At WoodLand, we believe a door is more than just an entrance. It
-            is the first impression of a space. That is why we create doors
-            that combine timeless design, reliable quality and lasting
-            durability.
-          </p>
+      <h2 className="serif">
+        Doors that don't just connect spaces
+        <span> they define them.</span>
+      </h2>
+    </div>
 
-          <p>
-            Instead of relying on solid timber which can swell, crack and
-            require repainting WoodLand doors are built from engineered
-            PET, PPH or CCP panels. The result is a door designed for
-            Pakistan&apos;s heat, humidity and monsoon seasons, without ever
-            losing its refined appearance.
-          </p>
+    <div className="story-content">
+      <p>
+        At WoodLand, we believe a door is more than just an entrance.
+        It is the first impression of a space an element that quietly
+        shapes how a room feels, functions and comes together.
+      </p>
 
-          <p>
-            From contemporary interiors to elegant commercial spaces, our
-            doors are designed to become part of the architecture not
-            simply an object placed within it.
-          </p>
-        </div>
-      </section>
+      <p>
+        Our journey began with a passion for creating beautifully crafted
+        doors that combine timeless design, reliable quality and lasting
+        durability.
+      </p>
+
+      <p>
+        Instead of relying on solid timber, which can swell, crack and
+        require regular maintenance, WoodLand doors are built from
+        engineered PET, PPH and CCP panels. The result is a door designed
+        for Pakistan's climate while maintaining a refined appearance.
+      </p>
+
+      <p>
+        From contemporary homes to elegant commercial spaces, our doors
+        are designed to become part of the architecture not simply an
+        object placed within it.
+      </p>
+    </div>
+
+  </div>
+</section>
 
       {/* MATERIALS — plain list, no cards */}
       <section className="materials-section">
@@ -150,11 +161,14 @@ export default function OurStoryPage() {
       </section>
 
       {/* CEO / FOUNDER */}
-      <section className="ceo-section">
+      {/* <section className="ceo-section">
         <div className="container ceo-inner" data-reveal>
           <span className="eyebrow">From the Founder</span>
 
-          <div className="ceo-quote">
+          <div className="ceo-quote" style={{display:"flex"}}>
+            <div>
+              <img src="3.jpg"></img>
+            </div>
             <IconQuote />
             <p className="serif" style={{fontSize:"15px"}}>
              As the CEO of Woodland Door, it is my pleasure to welcome you to a world where craftsmanship, design, and timeless elegance come together. At Woodland Door, we believe that a door is more than just an entryway it is the first expression of a space, setting the tone for everything beyond it.
@@ -172,8 +186,66 @@ Join us on our journey as we continue to redefine entrances, elevate interiors, 
             <span className="ceo-role">Founder &amp; CEO, WoodLand</span>
           </div>
         </div>
-      </section>
+      </section> */}
+{/* CEO / FOUNDER */}
+<section className="ceo-section">
+  <div className="ceo-inner" data-reveal>
 
+    {/* LEFT — CEO IMAGE */}
+    <div className="ceo-image">
+      <img src="ceo.png" alt="Mian Laeeq - Founder & CEO" />
+    </div>
+
+    {/* RIGHT — MESSAGE */}
+    <div className="ceo-content">
+
+      <span className="eyebrow">CEO'S MESSAGE</span>
+
+      <h2 className="serif">Welcome to WoodLand!</h2>
+
+      <IconQuote />
+
+      <div className="ceo-text">
+        <p>
+          As the CEO of WoodLand, it is my pleasure to welcome you to a
+          world where craftsmanship, design, and timeless elegance come
+          together. At WoodLand, we believe that a door is more than just
+          an entryway it is the first expression of a space, setting the
+          tone for everything beyond it.
+        </p>
+
+        <p>
+          Our journey began with a passion for creating beautifully crafted
+          doors that combine exceptional quality, thoughtful design, and
+          lasting durability. Every door we create reflects our dedication
+          to precision, craftsmanship, and attention to detail, ensuring
+          that each piece adds character and distinction to its surroundings.
+        </p>
+
+        <p>
+          At WoodLand, our mission is to help you transform your spaces with
+          doors that feel as exceptional as the environments they become
+          part of. From refined contemporary styles to timeless designs, we
+          strive to create pieces that complement your vision while standing
+          the test of time.
+        </p>
+
+        <p>
+          Join us on our journey as we continue to redefine entrances,
+          elevate interiors, and bring exceptional craftsmanship to every
+          space one door at a time.
+        </p>
+      </div>
+
+      {/* CEO DETAILS */}
+      <div className="ceo-person">
+        <span className="ceo-name">Mian Laeeq</span>
+        <span className="ceo-role">Founder &amp; CEO, WoodLand</span>
+      </div>
+
+    </div>
+  </div>
+</section>
       {/* COMPANY DETAILS */}
       <section className="company-section">
         <div className="container">
@@ -199,16 +271,17 @@ Join us on our journey as we continue to redefine entrances, elevate interiors, 
               Items marked as placeholders need real information from you.
               Send them over and we&apos;ll add them directly.
             </p>
-<a
-            
-              href={waLink("Hi WoodLand! I had a question about your company.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="about-whatsapp"
-            >
-              <IconWhatsApp />
-              Ask Us on WhatsApp
-            </a>
+  <a     
+  href={waLink("...")}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="about-whatsapp"
+>
+  <span className="about-whatsapp-icon">
+    <IconWhatsApp />
+  </span>
+  Ask Us on WhatsApp
+</a>
           </div>
         </div>
       </section>

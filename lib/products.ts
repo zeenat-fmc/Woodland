@@ -42,6 +42,28 @@ export const products: Product[] = [
     "/hinge.jpg"
   ],
 },
+ {
+    slug: "lb2601-15-122",
+    code: "LB2601-15-122",
+    category: "pph",
+    materialShort: "PPH",
+    materialLong: "Polypropylene Homopolymer",
+    size: "900×2100mm",
+    nw: "50kg",
+    features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
+    image: "/products/lb2601-15-122.jpg",
+  },
+   {
+    slug: "zf-6813",
+    code: "ZF-6813",
+    category: "ccp",
+    materialShort: "CCP",
+    materialLong: "Crystal Carbon Panel",
+    size: "900×2100mm",
+    nw: "45kg",
+    features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
+    image: "/products/zf-6813.jpg",
+  },
   {
     slug: "26p1-10-lb206",
     code: "26P1-10-LB206",
@@ -86,17 +108,7 @@ export const products: Product[] = [
     features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
     image: "/products/26p1-10-lb209.jpg",
   },
-  {
-    slug: "lb2601-15-122",
-    code: "LB2601-15-122",
-    category: "pph",
-    materialShort: "PPH",
-    materialLong: "Polypropylene Homopolymer",
-    size: "900×2100mm",
-    nw: "50kg",
-    features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
-    image: "/products/lb2601-15-122.jpg",
-  },
+ 
   {
     slug: "lb2601-15-123",
     code: "LB2601-15-123",
@@ -317,17 +329,7 @@ export const products: Product[] = [
     features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
     image: "/products/lb2601-15-133.jpg",
   },
-  {
-    slug: "zf-6813",
-    code: "ZF-6813",
-    category: "ccp",
-    materialShort: "CCP",
-    materialLong: "Crystal Carbon Panel",
-    size: "900×2100mm",
-    nw: "45kg",
-    features: ["100% Water Resistant", "Scratch Resistant Surface", "Termite Proof", "No Polish or Paint Required", "Warp & Weather Resistant"],
-    image: "/products/zf-6813.jpg",
-  },
+ 
   {
     slug: "zf-6815",
     code: "ZF-6815",
