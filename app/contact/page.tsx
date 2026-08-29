@@ -74,8 +74,9 @@ export default function ContactPage() {
               </div>
               <div className="info-block">
                 <h5>Follow</h5>
-                <a href="#">Instagram</a>
+                <a href="https://www.instagram.com/wood_land_doors/">Instagram</a>
                 <a href="#">LinkedIn</a>
+                    <a href="https://www.facebook.com/profile.php?id=61592541773902">Facebook</a>
               </div>
             </div>
 
