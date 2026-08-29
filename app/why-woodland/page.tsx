@@ -45,7 +45,7 @@ export default function WhyWoodlandPage() {
   return (
     <>
       <Loader />
-      <Nav  />
+       <Nav active="why-woodland" />
 
       {/* HERO */}
       <section className="page-hero">

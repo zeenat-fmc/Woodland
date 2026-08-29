@@ -53,7 +53,7 @@ export default function DoorLockServicesPage() {
   return (
     <>
       <Loader />
-      <Nav  />
+  <Nav active="door-lock-services" />
 
       {/* HERO */}
       <section className="page-hero">
@@ -62,7 +62,7 @@ export default function DoorLockServicesPage() {
         </div>
 
         <div className="container">
-          <span className="eyebrow">Door Lock Services</span>
+          <span className="eyebrow">Door Services</span>
           <h1 className="serif">
             Locks and hardware,
             <br />

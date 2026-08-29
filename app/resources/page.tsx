@@ -81,7 +81,7 @@ export default function ResourcesPage() {
   return (
     <>
       <Loader />
-      <Nav  />
+       <Nav active="resources" />
 
       {/* HERO */}
       <section className="page-hero">
