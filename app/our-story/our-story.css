@@ -1,6 +1,12 @@
-/* ---------- Our Story (simple, no cards) ---------- */
+/* =========================================================
+   OUR STORY PAGE
+   Fully Responsive — Desktop / Tablet / Mobile
+   ========================================================= */
 
-/* ---------- OUR STORY ---------- */
+
+/* =========================================================
+   OUR STORY
+   ========================================================= */
 
 .story-section {
   padding: 120px 0;
@@ -13,8 +19,8 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 42% 58%;
-  gap: 80px;
+  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  gap: 70px;
 
   align-items: start;
 }
@@ -32,9 +38,11 @@
 }
 
 .story-heading h2 {
+  margin: 0;
+
   font-size: clamp(34px, 4vw, 52px);
   line-height: 1.15;
-  margin: 0;
+
   color: var(--ivory);
 }
 
@@ -46,6 +54,7 @@
 
 .story-content {
   padding-top: 45px;
+  min-width: 0;
 }
 
 .story-content p {
@@ -67,88 +76,129 @@
 }
 
 
-/* ---------- TABLET ---------- */
+/* =========================================================
+   MATERIALS
+   ========================================================= */
 
-@media (max-width: 900px) {
+.materials-section {
+  padding: 0 0 120px;
+}
 
-  .story-section {
-    padding: 90px 0;
-  }
+.materials-heading {
+  margin-bottom: 48px;
+}
 
-  .story-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+.materials-plain {
+  display: flex;
+  flex-direction: column;
+}
 
-  .story-heading {
-    position: static;
-  }
+.material-row {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 32px;
 
-  .story-content {
-    padding-top: 0;
-  }
+  padding: 32px 0;
 
+  border-top: 1px solid var(--line);
+}
+
+.material-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.material-name {
+  font-family: "Fraunces", serif;
+  font-size: 22px;
+  color: var(--brass);
+}
+
+.material-row h3 {
+  margin: 0 0 8px;
+
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.material-row p {
+  max-width: 520px;
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ivory-dim);
 }
 
 
-/* ---------- MOBILE ---------- */
+/* =========================================================
+   PRINCIPLES
+   ========================================================= */
 
-@media (max-width: 600px) {
-
-  .story-section {
-    padding: 70px 0;
-  }
-
-  .story-heading h2 {
-    font-size: 34px;
-  }
-
-  .story-content p,
-  .story-content p:first-child {
-    font-size: 15px;
-    line-height: 1.75;
-  }
-
+.principles-section {
+  padding: 0 0 120px;
 }
 
-/* ---------- Materials — plain list ---------- */
-.materials-section{padding:0 0 120px;}
-.materials-heading{margin-bottom:48px;}
-.materials-plain{display:flex;flex-direction:row;}
-.material-row{
-  display:grid;grid-template-columns:100px 1fr;gap:32px;
-  padding:32px 0;border-top:1px solid var(--line);
+.principles-heading {
+  max-width: 600px;
+  margin-bottom: 56px;
 }
-.material-row:last-child{border-bottom:1px solid var(--line);}
-.material-name{
-  font-family:'Fraunces',serif;font-size:22px;color:var(--brass);
-}
-.material-row h3{font-size:20px;margin-bottom:8px;}
-.material-row p{font-size:15px;color:var(--ivory-dim);line-height:1.7;max-width:520px;}
 
-/* ---------- Principles — plain list ---------- */
-.principles-section{padding:0 0 120px;}
-.principles-heading{max-width:600px;margin-bottom:56px;}
-.principles-heading h2{font-size:clamp(28px,3.6vw,38px);margin-top:16px;}
-.principles-plain{display:flex;flex-direction:column;}
-.principle-row{
-  display:grid;grid-template-columns:80px 1fr;gap:32px;
-  padding:36px 0;border-top:1px solid var(--line);
-}
-.principle-row:last-child{border-bottom:1px solid var(--line);}
-.principle-number{
-  font-family:'Fraunces',serif;font-size:15px;color:var(--brass);
-}
-.principle-row h3{font-size:24px;margin-bottom:10px;}
-.principle-row p{font-size:15px;color:var(--ivory-dim);line-height:1.75;max-width:560px;}
+.principles-heading h2 {
+  margin-top: 16px;
 
-/* ---------- CEO / Founder ---------- */
-/* ---------- CEO / FOUNDER ---------- */
+  font-size: clamp(28px, 3.6vw, 38px);
+  line-height: 1.2;
+}
+
+.principles-plain {
+  display: flex;
+  flex-direction: column;
+}
+
+.principle-row {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 32px;
+
+  padding: 36px 0;
+
+  border-top: 1px solid var(--line);
+}
+
+.principle-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.principle-number {
+  font-family: "Fraunces", serif;
+  font-size: 15px;
+  color: var(--brass);
+}
+
+.principle-row h3 {
+  margin: 0 0 10px;
+
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.principle-row p {
+  max-width: 560px;
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ivory-dim);
+}
+
+
+/* =========================================================
+   CEO / FOUNDER
+   ========================================================= */
 
 .ceo-section {
   padding: 0 0 120px;
   background: #fff;
-  height: 85vh;
 }
 
 .ceo-inner {
@@ -157,33 +207,39 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 
   background: #fff;
 }
 
-/* ---------- LEFT IMAGE ---------- */
+/* LEFT IMAGE */
 
 .ceo-image {
   width: 100%;
   height: 620px;
-  overflow: hidden;
+
   padding: 40px;
   margin-top: 20px;
+
+  overflow: hidden;
 }
 
 .ceo-image img {
   width: 100%;
   height: 100%;
+
   display: block;
+
   object-fit: contain;
-  object-position: center top;
-  /* margin-top: 90px; */
+  object-position: center center;
 }
 
-/* ---------- RIGHT CONTENT ---------- */
+
+/* RIGHT CONTENT */
 
 .ceo-content {
+  min-width: 0;
+
   padding: 60px 70px;
 
   display: flex;
@@ -191,21 +247,24 @@
   justify-content: center;
 
   text-align: left;
+
   background: #fff;
 }
 
 .ceo-content .eyebrow {
+  margin-bottom: 14px;
+
   color: var(--brass);
   font-size: 13px;
   letter-spacing: 1px;
-  margin-bottom: 14px;
 }
 
 .ceo-content h2 {
+  margin: 0 0 18px;
+
   color: var(--brass);
   font-size: 32px;
   line-height: 1.2;
-  margin: 0 0 18px;
 }
 
 /* Quote */
@@ -213,12 +272,14 @@
 .ceo-content > svg {
   width: 28px;
   height: 28px;
-  color: var(--brass);
-  opacity: .5;
+
   margin-bottom: 15px;
+
+  color: var(--brass);
+  opacity: 0.5;
 }
 
-/* ---------- TEXT ---------- */
+/* TEXT */
 
 .ceo-text {
   max-width: 100%;
@@ -237,7 +298,7 @@
   margin-bottom: 28px;
 }
 
-/* ---------- CEO NAME ---------- */
+/* CEO NAME */
 
 .ceo-person {
   display: flex;
@@ -246,117 +307,73 @@
 }
 
 .ceo-name {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
+
   font-size: 18px;
   font-weight: 600;
+
   color: var(--ivory);
 }
 
 .ceo-role {
   font-size: 11px;
+
   color: var(--ivory-dim);
-  letter-spacing: .6px;
+
+  letter-spacing: 0.6px;
   text-transform: uppercase;
 }
 
 
-/* ---------- TABLET ---------- */
+/* =========================================================
+   COMPANY DETAILS
+   ========================================================= */
 
-@media (max-width: 1024px) {
-
-  .ceo-inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .ceo-image {
-    height: 560px;
-  }
-
-  .ceo-content {
-    padding: 45px;
-  }
-
-  .ceo-content h2 {
-    font-size: 28px;
-  }
-
-  .ceo-text p {
-    font-size: 13px;
-    line-height: 1.6;
-  }
-}
-
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 700px) {
-
-  .ceo-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .ceo-image {
-    height: 420px;
-  }
-
-  .ceo-content {
-    padding: 45px 25px 55px;
-  }
-
-  .ceo-content h2 {
-    font-size: 28px;
-  }
-
-  .ceo-text p {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-}
-
-/* ---------- Company details ---------- */
 .company-section {
   padding: 0 0 140px;
   margin-top: 20px;
 }
 
-/* Heading */
 .company-heading {
   max-width: 650px;
   margin-bottom: 52px;
 }
 
 .company-heading h2 {
+  margin: 16px 0 14px;
+
   font-size: clamp(30px, 3.6vw, 42px);
   line-height: 1.15;
-  margin: 16px 0 14px;
+
   color: var(--ivory, #fff);
 }
 
 .company-heading p {
+  max-width: 540px;
+
   color: var(--ivory-dim);
+
   font-size: 15px;
   line-height: 1.7;
-  max-width: 540px;
 }
 
-/* Company details */
 .company-list {
   display: flex;
   flex-direction: column;
+
   border-top: 1px solid var(--line);
 }
 
 .company-row {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 260px minmax(0, 1fr);
   gap: 40px;
 
   padding: 24px 0;
+
   border-bottom: 1px solid var(--line);
 
-  transition:
-    padding-left 0.25s ease,
-    background 0.25s ease;
+  transition: padding-left 0.25s ease;
 }
 
 .company-row:hover {
@@ -365,17 +382,25 @@
 
 .company-row span {
   font-size: 13px;
+
   color: var(--brass);
+
   letter-spacing: 0.8px;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .company-row p {
+  min-width: 0;
+
   margin: 0;
+
   font-size: 15px;
   line-height: 1.7;
+
   color: var(--ivory, #fff);
+
+  overflow-wrap: anywhere;
 }
 
 .company-row p.placeholder {
@@ -384,13 +409,19 @@
   opacity: 0.75;
 }
 
-/* Bottom note + CTA */
+
+/* COMPANY BOTTOM */
+
 .company-bottom {
+  position: relative;
+  overflow: hidden;
+
   margin-top: 52px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 30px;
   flex-wrap: wrap;
 
@@ -409,35 +440,40 @@
     var(--brass) 7%,
     transparent
   );
-
-  position: relative;
-  overflow: hidden;
 }
 
-/* Small brass accent */
 .company-bottom::before {
   content: "";
+
   position: absolute;
   left: 0;
   top: 0;
+
   width: 4px;
   height: 100%;
+
   background: var(--brass);
 }
 
 .company-bottom p {
+  max-width: 520px;
+
   margin: 0;
+
   font-size: 13px;
   line-height: 1.7;
+
   color: var(--ivory-dim);
-  max-width: 520px;
 }
 
-/* WhatsApp button */
+
+/* WHATSAPP */
+
 .company-bottom .about-whatsapp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 10px;
 
   padding: 14px 24px;
@@ -449,6 +485,7 @@
 
   font-size: 14px;
   font-weight: 600;
+
   text-decoration: none;
 
   white-space: nowrap;
@@ -463,8 +500,11 @@
 
 .company-bottom .about-whatsapp:hover {
   background: #20bd5a;
+
   transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.22);
+
+  box-shadow:
+    0 12px 26px rgba(37, 211, 102, 0.22);
 }
 
 .company-bottom .about-whatsapp-icon {
@@ -478,8 +518,89 @@
   height: 18px;
 }
 
-/* Tablet */
+
+/* =========================================================
+   LARGE TABLET / SMALL LAPTOP
+   1024px
+   ========================================================= */
+
 @media (max-width: 1024px) {
+
+  /* Story */
+
+  .story-section {
+    padding: 90px 0;
+  }
+
+  .story-inner {
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+    gap: 45px;
+  }
+
+  .story-heading {
+    top: 100px;
+  }
+
+  .story-heading h2 {
+    font-size: clamp(32px, 4vw, 44px);
+  }
+
+  .story-content {
+    padding-top: 25px;
+  }
+
+
+  /* Materials */
+
+  .materials-section {
+    padding-bottom: 100px;
+  }
+
+  .material-row {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+
+  /* Principles */
+
+  .principles-section {
+    padding-bottom: 100px;
+  }
+
+  .principle-row {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+
+  /* CEO */
+
+  .ceo-section {
+    padding-bottom: 100px;
+  }
+
+  .ceo-image {
+    height: 540px;
+    padding: 30px;
+  }
+
+  .ceo-content {
+    padding: 45px;
+  }
+
+  .ceo-content h2 {
+    font-size: 28px;
+  }
+
+  .ceo-text p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+
+  /* Company */
+
   .company-section {
     padding-bottom: 100px;
   }
@@ -489,8 +610,129 @@
   }
 
   .company-row {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Story */
+
+  .story-section {
+    padding: 80px 0;
+  }
+
+  .story-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .story-heading {
+    position: static;
+  }
+
+  .story-heading .eyebrow {
+    margin-bottom: 15px;
+  }
+
+  .story-heading h2 {
+    max-width: 650px;
+    font-size: clamp(34px, 6vw, 44px);
+  }
+
+  .story-content {
+    padding-top: 0;
+  }
+
+
+  /* Materials */
+
+  .materials-section {
+    padding-bottom: 90px;
+  }
+
+  .materials-heading {
+    margin-bottom: 35px;
+  }
+
+  .material-row {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 22px;
+
+    padding: 27px 0;
+  }
+
+  .material-name {
+    font-size: 20px;
+  }
+
+
+  /* Principles */
+
+  .principles-section {
+    padding-bottom: 90px;
+  }
+
+  .principles-heading {
+    margin-bottom: 40px;
+  }
+
+  .principle-row {
+    grid-template-columns: 55px minmax(0, 1fr);
+    gap: 20px;
+
+    padding: 30px 0;
+  }
+
+  .principle-row h3 {
+    font-size: 22px;
+  }
+
+
+  /* CEO */
+
+  .ceo-section {
+    padding-bottom: 90px;
+  }
+
+  .ceo-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ceo-image {
+    height: 500px;
+    padding: 30px;
+    margin-top: 0;
+  }
+
+  .ceo-content {
+    padding: 45px 35px 55px;
+  }
+
+  .ceo-content h2 {
+    font-size: 30px;
+  }
+
+  .ceo-text p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+
+  /* Company */
+
+  .company-row {
     grid-template-columns: 1fr;
     gap: 8px;
+
     padding: 22px 0;
   }
 
@@ -498,15 +740,165 @@
     padding-left: 0;
   }
 
+  .company-row span {
+    font-size: 12px;
+  }
+
   .company-bottom {
     align-items: flex-start;
   }
+
 }
 
-/* Mobile */
+
+/* =========================================================
+   MOBILE
+   600px
+   ========================================================= */
+
 @media (max-width: 600px) {
+
+  /* Story */
+
+  .story-section {
+    padding: 65px 0;
+  }
+
+  .story-inner {
+    gap: 28px;
+  }
+
+  .story-heading h2 {
+    font-size: 34px;
+    line-height: 1.18;
+  }
+
+  .story-content p {
+    margin-bottom: 20px;
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .story-content p:first-child {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+
+  /* Materials */
+
+  .materials-section {
+    padding-bottom: 70px;
+  }
+
+  .materials-heading {
+    margin-bottom: 28px;
+  }
+
+  .material-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+
+    padding: 24px 0;
+  }
+
+  .material-name {
+    font-size: 21px;
+  }
+
+  .material-row h3 {
+    font-size: 18px;
+  }
+
+  .material-row p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+
+  /* Principles */
+
+  .principles-section {
+    padding-bottom: 70px;
+  }
+
+  .principles-heading {
+    margin-bottom: 30px;
+  }
+
+  .principles-heading h2 {
+    font-size: 30px;
+  }
+
+  .principle-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+
+    padding: 25px 0;
+  }
+
+  .principle-number {
+    font-size: 14px;
+  }
+
+  .principle-row h3 {
+    font-size: 21px;
+  }
+
+  .principle-row p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+
+  /* CEO */
+
+  .ceo-section {
+    padding-bottom: 70px;
+  }
+
+  .ceo-image {
+    height: 360px;
+    padding: 20px;
+  }
+
+  .ceo-content {
+    padding: 38px 22px 45px;
+  }
+
+  .ceo-content .eyebrow {
+    font-size: 12px;
+  }
+
+  .ceo-content h2 {
+    font-size: 27px;
+  }
+
+  .ceo-content > svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ceo-text p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .ceo-text p:last-child {
+    margin-bottom: 24px;
+  }
+
+
+  /* Company */
+
   .company-section {
     padding-bottom: 70px;
+    margin-top: 0;
+  }
+
+  .company-heading {
+    margin-bottom: 30px;
   }
 
   .company-heading h2 {
@@ -522,20 +914,83 @@
   }
 
   .company-row span {
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 0.7px;
   }
 
   .company-row p {
     font-size: 14px;
+    line-height: 1.7;
   }
 
   .company-bottom {
-    margin-top: 40px;
-    padding: 24px 22px;
+    margin-top: 35px;
+
+    padding: 24px 20px;
+
     gap: 22px;
+  }
+
+  .company-bottom p {
+    font-size: 13px;
   }
 
   .company-bottom .about-whatsapp {
     width: 100%;
+
+    min-height: 50px;
+    padding: 13px 20px;
   }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .story-section {
+    padding: 55px 0;
+  }
+
+  .story-heading h2 {
+    font-size: 30px;
+  }
+
+  .story-content p:first-child {
+    font-size: 15px;
+  }
+
+  .material-name {
+    font-size: 20px;
+  }
+
+  .principles-heading h2 {
+    font-size: 27px;
+  }
+
+  .ceo-image {
+    height: 320px;
+    padding: 15px;
+  }
+
+  .ceo-content {
+    padding: 32px 18px 40px;
+  }
+
+  .ceo-content h2 {
+    font-size: 25px;
+  }
+
+  .company-heading h2 {
+    font-size: 27px;
+  }
+
+  .company-bottom {
+    padding: 22px 18px;
+  }
+
 }
