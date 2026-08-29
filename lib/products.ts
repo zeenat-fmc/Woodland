@@ -39,7 +39,7 @@ export const products: Product[] = [
     "/lock.png",
     "/design.png",
     "/hinge.jpg",
-    "/hinge.jpg"
+    "/lock2.jpg"
   ],
 },
  {

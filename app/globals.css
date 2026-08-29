@@ -1682,3 +1682,456 @@ nav.site-nav.scrolled{
 .hero{
     padding-top:0;
 }
+
+/* ================================================================
+   FINAL MOBILE FIX
+   ================================================================ */
+
+@media (max-width: 1024px) {
+
+  /* --------------------------------
+     NAVBAR
+     -------------------------------- */
+
+  .top-bar {
+    display: none !important;
+  }
+
+  nav.site-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+
+    padding: 12px 20px !important;
+    min-height: 68px;
+
+    background: var(--panel) !important;
+    border-bottom: 1px solid var(--line) !important;
+    box-shadow: var(--shadow-sm) !important;
+
+    z-index: 1000;
+  }
+
+  .nav-inner {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    flex-shrink: 0;
+  }
+
+
+  /* --------------------------------
+     IMPORTANT:
+     MOBILE DOES NOT USE DESKTOP
+     130px NAV OVERLAP
+     -------------------------------- */
+
+  .wl {
+    --wl-nav-total: 0px;
+  }
+
+
+  /* --------------------------------
+     HERO
+     -------------------------------- */
+
+  .wl-hero {
+    min-height: auto !important;
+
+    /*
+      navbar is fixed and 68px tall,
+      so hero needs normal top spacing
+    */
+    padding-top: 92px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .wl-hero__grid {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .wl-hero__media {
+    order: 1;
+
+    /* REMOVE DESKTOP NEGATIVE MARGIN */
+    margin-top: 0 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .wl-hero__frame {
+    width: 100% !important;
+
+    /* NO +130px CALCULATION */
+    height: 56vh !important;
+    min-height: 320px !important;
+    max-height: 560px !important;
+
+    border-radius: 0 !important;
+  }
+
+  .wl-hero__copy {
+    order: 2;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .wl-hero__title {
+    font-size: clamp(38px, 10vw, 54px) !important;
+    line-height: 1.03 !important;
+  }
+
+  .wl-hero__sub {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+
+/* ================================================================
+   SMALL PHONES
+   ================================================================ */
+
+@media (max-width: 640px) {
+
+  nav.site-nav {
+    padding: 11px 18px !important;
+    min-height: 64px;
+  }
+
+  .logo {
+    max-width: calc(100% - 45px);
+    min-width: 0;
+  }
+
+  .logo img {
+    height: 42px;
+    width: auto;
+  }
+
+  .logo-text {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .logo-text em {
+    font-size: 7px;
+    letter-spacing: .12em;
+  }
+
+  .wl-hero {
+    padding-top: 82px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .wl-hero__grid {
+    gap: 24px !important;
+  }
+
+  .wl-hero__frame {
+    height: 58vh !important;
+    min-height: 300px !important;
+    max-height: 500px !important;
+  }
+
+  .wl-hero__copy {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .wl-hero__title {
+    font-size: clamp(36px, 10.5vw, 48px) !important;
+  }
+
+  .wl-hero__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .wl-hero__actions .wl-btn {
+    width: 100%;
+  }
+}
+
+/* ================================================================
+   FINAL MOBILE NAV + HERO
+   ================================================================ */
+
+@media (max-width: 1024px) {
+
+    /* ================= NAVBAR ================= */
+
+    .top-bar {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    nav.site-nav {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+
+        width: 100% !important;
+        height: 68px !important;
+        min-height: 68px !important;
+
+        padding: 10px 18px !important;
+
+        background: #ffffff !important;
+        border-bottom: 1px solid rgba(33,27,18,.10) !important;
+
+        box-shadow: 0 4px 20px rgba(0,0,0,.08) !important;
+
+        z-index: 10000 !important;
+    }
+
+    .nav-inner {
+        width: 100% !important;
+        max-width: none !important;
+
+        height: 100% !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    /* Logo */
+    .logo {
+        display: flex !important;
+        align-items: center !important;
+
+        gap: 8px !important;
+
+        min-width: 0 !important;
+        max-width: calc(100% - 55px) !important;
+    }
+
+    .logo img {
+        height: 44px !important;
+        width: auto !important;
+        flex-shrink: 0 !important;
+    }
+
+    .logo-text {
+        font-size: 17px !important;
+        line-height: 1 !important;
+        color: #211b12 !important;
+        white-space: nowrap !important;
+    }
+
+    .logo-text em {
+        font-size: 7px !important;
+        display: block !important;
+    }
+
+
+    /* ================= HAMBURGER ================= */
+
+    .nav-toggle {
+        display: flex !important;
+
+        position: relative !important;
+
+        width: 30px !important;
+        height: 30px !important;
+
+        flex-shrink: 0 !important;
+
+        margin: 0 !important;
+        padding: 4px !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        flex-direction: column !important;
+        gap: 5px !important;
+
+        background: transparent !important;
+        border: none !important;
+
+        cursor: pointer !important;
+
+        z-index: 11000 !important;
+    }
+
+    .nav-toggle span {
+        display: block !important;
+
+        width: 22px !important;
+        height: 2px !important;
+
+        flex-shrink: 0 !important;
+
+        background: #253A33 !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        transform-origin: center !important;
+    }
+
+
+    /* ================= DESKTOP LINKS OFF ================= */
+
+    .nav-links {
+        display: none !important;
+    }
+
+
+    /* ================= MOBILE MENU ================= */
+
+    .mobile-menu {
+        position: fixed !important;
+
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+
+        width: 100% !important;
+        height: 100dvh !important;
+
+        display: flex !important;
+
+        z-index: 9000 !important;
+
+        background: #f8f4ec !important;
+
+        transform: translateY(-100%) !important;
+
+        visibility: hidden !important;
+        opacity: 0 !important;
+
+        transition:
+            transform .45s ease,
+            opacity .45s ease,
+            visibility .45s ease !important;
+    }
+
+    .mobile-menu.open {
+        transform: translateY(0) !important;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .wl {
+        --wl-nav-total: 0px !important;
+    }
+
+    .wl-hero {
+        min-height: auto !important;
+
+        padding-top: 88px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .wl-hero__grid {
+        width: 100% !important;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 28px !important;
+    }
+
+    .wl-hero__media {
+        order: 1 !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin-top: 0 !important;
+    }
+
+    .wl-hero__frame {
+        width: 100% !important;
+
+        height: 56vh !important;
+
+        min-height: 320px !important;
+        max-height: 560px !important;
+
+        border-radius: 0 !important;
+    }
+
+    .wl-hero__copy {
+        order: 2 !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+
+/* ================================================================
+   SMALL MOBILE
+   ================================================================ */
+
+@media (max-width: 640px) {
+
+    nav.site-nav {
+        height: 64px !important;
+        min-height: 64px !important;
+
+        padding: 9px 16px !important;
+    }
+
+    .logo img {
+        height: 40px !important;
+    }
+
+    .logo-text {
+        font-size: 15px !important;
+    }
+
+    .logo-text em {
+        font-size: 6.5px !important;
+    }
+
+    .nav-toggle {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .nav-toggle span {
+        width: 22px !important;
+        height: 2px !important;
+    }
+
+    .wl-hero {
+        padding-top: 80px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .wl-hero__frame {
+        height: 58vh !important;
+        min-height: 300px !important;
+        max-height: 500px !important;
+    }
+}
