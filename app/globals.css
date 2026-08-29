@@ -19,7 +19,7 @@
     --brass:      #253A33;
     --brass-lt:   #3d5c4f;
     --brass-deep: #16241f;
-
+ --wl-nav-total: 130px;
     --line:       rgba(33,27,18,0.11);
     --line-brass: rgba(37,58,51,0.4);
 
@@ -751,9 +751,12 @@ font-weight: 550;
    MOBILE MENU
    ================================================================ */
 
+/* ================================================================
+   MOBILE MENU
+   ================================================================ */
+
 .mobile-menu{
     position:fixed;
-
     inset:0;
 
     background:var(--bg);
@@ -761,38 +764,108 @@ font-weight: 550;
     z-index:1050;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
-    gap:30px;
+    gap:24px;
 
     transform:translateY(-100%);
-
-    transition:.6s var(--ease);
+    transition:transform .6s var(--ease);
 
     visibility:hidden;
+    opacity:0;
+
+    padding:100px 30px 40px;
 }
 
 .mobile-menu.open{
     transform:translateY(0);
 
     visibility:visible;
+    opacity:1;
 }
 
+
+/* IMPORTANT:
+   Override desktop nav-link styling completely
+*/
+
 .mobile-menu a{
-    font-family:'Fraunces', serif;
+    display:block !important;
 
-    font-size:34px;
+    width:auto !important;
 
-    color:var(--ivory);
+    padding:0 !important;
+    margin:0 !important;
+
+    border-radius:0 !important;
+
+    background:transparent !important;
+
+    color:var(--ivory) !important;
+
+    font-family:'Fraunces', serif !important;
+    font-size:34px !important;
+    font-weight:400 !important;
+
+    line-height:1.15;
+
+    white-space:normal !important;
+
+    box-shadow:none !important;
+
+    transition:
+        color .3s var(--ease),
+        transform .3s var(--ease);
 }
 
 .mobile-menu a:hover{
-    color:var(--brass);
+    background:transparent !important;
+
+    color:var(--brass) !important;
+
+    padding:0 !important;
+
+    transform:translateY(-2px);
+}
+
+
+/* ================================================================
+   MOBILE MENU — ONLY ON MOBILE
+   ================================================================ */
+
+@media (max-width:1024px){
+
+    .mobile-menu{
+        display:flex;
+    }
+
+    .nav-links{
+        display:none !important;
+    }
+
+    .nav-toggle{
+        display:flex;
+    }
+
+}
+
+
+/* ================================================================
+   DESKTOP — HIDE MOBILE MENU
+   ================================================================ */
+
+@media (min-width:1025px){
+
+    .mobile-menu{
+        display:none !important;
+    }
+
+    .nav-toggle{
+        display:none !important;
+    }
+
 }
 
 

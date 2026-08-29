@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <Loader />
 
-      <Nav active="contact" />
+      <Nav active={"contact" as any} />
 
       <section className="page-hero" style={{ minHeight: "50vh" }}>
         <div className="page-hero-bg">
