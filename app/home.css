@@ -409,10 +409,10 @@
   filter: blur(24px);
   animation: wlAura 16s ease-in-out infinite alternate;
 }
-@keyframes wlAura {
+/* @keyframes wlAura {
   from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.75; }
   to   { transform: translate3d(5%, 4%, 0) scale(1.12); opacity: 1; }
-}
+} */
 
 .wl-hero__grid {
   position: relative;

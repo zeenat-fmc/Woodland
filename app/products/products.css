@@ -790,4 +790,709 @@
   .lightbox-counter {
     top: 25px;
   }
+}/* ================================================================
+   NEW: PRODUCT PAGE REDESIGN ADDITIONS
+   Append this block to the end of app/products.css
+   (keeps everything already there — thumbnails, lightbox, etc.)
+   ================================================================ */
+
+/* ---------- Breadcrumb ---------- */
+
+.product-breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-size:13px;
+    color:var(--ivory-dim);
+
+    margin-bottom:26px;
+}
+
+.product-breadcrumb a{
+    color:var(--ivory-dim);
+    transition:.3s var(--ease);
+}
+
+.product-breadcrumb a:hover{
+    color:var(--brass);
+}
+
+.product-breadcrumb strong{
+    color:var(--ivory);
+    font-weight:600;
+}
+
+/* ---------- Best seller badge on gallery ---------- */
+
+.gallery-badge{
+    position:absolute;
+    top:16px;
+    left:16px;
+    z-index:2;
+
+    padding:6px 12px;
+
+    background:var(--brand-green, #1f5c3f);
+    color:#fff;
+
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+}
+
+/* ---------- Scrollable thumbnail row with nav arrows ---------- */
+
+.product-thumbnails-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-top:14px;
+}
+
+.product-thumbnails-row .product-thumbnails{
+    display:flex;
+    gap:12px;
+
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+
+    margin-top:0;
+    flex:1;
+}
+
+.product-thumbnails-row .product-thumbnails::-webkit-scrollbar{
+    display:none;
+}
+
+.product-thumbnails-row .product-thumbnail{
+    flex:0 0 clamp(70px, 18%, 96px);
+    aspect-ratio:4/5;
+}
+
+.thumb-nav-btn{
+    flex-shrink:0;
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ivory-dim);
+
+    font-size:18px;
+    cursor:pointer;
+
+    transition:.3s var(--ease);
+}
+
+.thumb-nav-btn:hover{
+    border-color:var(--brass);
+    color:var(--brass);
+}
+
+/* ---------- Tags row ---------- */
+
+.product-tags{
+    display:flex;
+    gap:10px;
+
+    margin-bottom:18px;
+}
+
+.product-tags .tag{
+    margin-bottom:0;
+
+    padding:5px 12px;
+
+    border:1px solid var(--line);
+}
+
+.tag-collection{
+    color:var(--ivory-dim) !important;
+}
+
+/* ---------- Performance badges row ---------- */
+
+.product-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+
+    padding:22px 0;
+
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    margin:22px 0 30px;
+}
+
+.product-badge{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+
+    width:78px;
+
+    text-align:center;
+
+    font-size:10.5px;
+    line-height:1.35;
+    color:var(--ivory-dim);
+}
+
+.product-badge svg{
+    color:var(--brass);
+}
+
+/* ---------- Option groups: size / thickness pills ---------- */
+
+.option-group{
+    margin-bottom:22px;
+}
+
+.option-group h5{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:var(--ivory-dim);
+
+    margin-bottom:12px;
+}
+
+.option-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.option-pill{
+    padding:9px 16px;
+
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ivory);
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    transition:.25s var(--ease);
+}
+
+.option-pill:hover{
+    border-color:var(--brass);
+}
+
+.option-pill.active{
+    border-color:var(--brass);
+    color:var(--brass);
+    background:rgba(181,137,44,.08);
+}
+
+/* ---------- Color swatches ---------- */
+
+.color-swatches{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+}
+
+.color-swatch{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+.color-swatch-fill{
+    display:block;
+
+    width:38px;
+    height:38px;
+    border-radius:50%;
+
+    border:2px solid transparent;
+
+    box-shadow:0 0 0 1px var(--line);
+
+    transition:.25s var(--ease);
+}
+
+.color-swatch.active .color-swatch-fill{
+    border-color:var(--brass);
+    box-shadow:0 0 0 1px var(--brass);
+}
+
+.color-swatch-label{
+    font-size:11px;
+    color:var(--ivory-dim);
+}
+
+/* ---------- Quantity control ---------- */
+
+.quantity-control{
+    display:inline-flex;
+    align-items:center;
+
+    border:1px solid var(--line);
+}
+
+.quantity-control button{
+    width:38px;
+    height:38px;
+
+    background:none;
+    border:none;
+    color:var(--ivory);
+
+    font-size:16px;
+    cursor:pointer;
+
+    transition:.25s var(--ease);
+}
+
+.quantity-control button:hover{
+    color:var(--brass);
+}
+
+.quantity-control span{
+    min-width:40px;
+    text-align:center;
+
+    font-family:'Fraunces',serif;
+    font-size:16px;
+}
+
+/* ---------- CTA buttons ---------- */
+
+.product-cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+
+    margin:30px 0 20px;
+}
+
+.product-cta-row .btn,
+.product-cta-row .btn-wa{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+.product-cta-row svg{
+    width:18px;
+    height:18px;
+}
+
+.btn-outline{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ivory);
+}
+
+.btn-outline:hover{
+    border-color:var(--brass);
+    color:var(--brass);
+}
+
+.btn-sm{
+    padding:8px 16px;
+    font-size:12px;
+}
+
+/* ---------- Trust strip ---------- */
+
+.trust-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+
+    padding-top:20px;
+}
+
+.trust-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:11px;
+    line-height:1.35;
+    color:var(--ivory-dim);
+}
+
+.trust-item svg{
+    color:var(--brass);
+    flex-shrink:0;
+}
+
+/* ---------- Specs + Why grid ---------- */
+
+.product-specs-section{
+    background:var(--bg-soft);
+}
+
+.specs-why-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:60px;
+}
+
+.specs-panel h3,
+.why-panel h3{
+    margin-bottom:24px;
+    font-size:26px;
+}
+
+.specs-table{
+    display:flex;
+    flex-direction:column;
+}
+
+.specs-row{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:16px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid var(--line);
+
+    font-size:14px;
+}
+
+.specs-row dt{
+    color:var(--ivory-dim);
+}
+
+.specs-row dd{
+    color:var(--ivory);
+    font-weight:500;
+}
+
+.why-panel p{
+    color:var(--ivory-dim);
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.why-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 26px;
+}
+
+.why-list li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:10px 0;
+
+    font-size:15px;
+}
+
+.why-list svg{
+    color:var(--brass);
+    flex-shrink:0;
+}
+
+.why-image{
+    overflow:hidden;
+    aspect-ratio:16/10;
+}
+
+.why-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* ---------- Recommended for ---------- */
+
+.recommended-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:20px;
+}
+
+.recommended-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+
+    padding:26px 14px;
+
+    border:1px solid var(--line);
+
+    text-align:center;
+
+    font-size:13px;
+    color:var(--ivory-dim);
+}
+
+.recommended-item svg{
+    color:var(--brass);
+}
+
+/* ---------- Applications + Care ---------- */
+
+.applications-care-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:60px;
+}
+
+.applications-panel h4,
+.care-panel h4{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:var(--ivory-dim);
+
+    margin-bottom:20px;
+}
+
+.applications-images{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.application-item{
+    position:relative;
+
+    aspect-ratio:4/3;
+    overflow:hidden;
+}
+
+.application-item img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.application-item span{
+    position:absolute;
+    left:12px;
+    bottom:12px;
+
+    padding:5px 10px;
+
+    background:rgba(20,16,10,.75);
+    color:#fff;
+
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+}
+
+.care-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.care-list li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid var(--line);
+
+    font-size:14px;
+}
+
+.care-list li:last-child{
+    border-bottom:none;
+}
+
+.care-list svg{
+    color:var(--brass);
+    flex-shrink:0;
+}
+
+/* ---------- Related carousel ---------- */
+
+.related-heading{
+    margin-bottom:30px;
+}
+
+.related-carousel{
+    display:flex;
+    gap:22px;
+
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    padding-bottom:6px;
+}
+
+.related-card{
+    flex:0 0 310px;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.related-img{
+    display:block;
+
+    aspect-ratio:4/5;
+    overflow:hidden;
+
+    background:var(--panel);
+}
+
+.related-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    transition:transform .5s var(--ease);
+}
+
+.related-card:hover .related-img img{
+    transform:scale(1.05);
+}
+
+.related-card h4{
+    font-size:17px;
+}
+
+.related-card > span{
+    font-size:12px;
+    color:var(--ivory-dim);
+}
+
+.related-card .btn{
+    margin-top:6px;
+    text-align:center;
+}
+
+/* ---------- Bottom CTA banner ---------- */
+
+.bottom-cta-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.bottom-cta-item{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+
+    padding:26px;
+
+    border:1px solid var(--line);
+
+    transition:.3s var(--ease);
+}
+
+.bottom-cta-item:hover{
+    border-color:var(--brass);
+}
+
+.bottom-cta-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:50px;
+    height:50px;
+    flex-shrink:0;
+    border-radius:50%;
+
+    background:var(--bg-soft);
+    color:var(--brass);
+}
+
+.bottom-cta-icon svg{
+    width:24px;
+    height:24px;
+}
+
+.bottom-cta-icon-wa{
+    background:var(--brand-green, #1f5c3f);
+    color:#fff;
+}
+
+.bottom-cta-item strong{
+    display:block;
+    margin-bottom:6px;
+    font-size:16px;
+}
+
+.bottom-cta-item p{
+    font-size:13px;
+    color:var(--ivory-dim);
+    margin-bottom:14px;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width:1024px){
+
+    .specs-why-grid,
+    .applications-care-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .recommended-grid{
+        grid-template-columns:repeat(3, 1fr);
+    }
+
+    .bottom-cta-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:640px){
+
+    .product-badges{
+        gap:14px;
+        justify-content:space-between;
+    }
+
+    .product-badge{
+        width:30%;
+    }
+
+    .specs-row{
+        grid-template-columns:1fr;
+        gap:4px;
+    }
+
+    .recommended-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+    .applications-images{
+        grid-template-columns:1fr;
+    }
+
+    .related-card{
+        flex:0 0 170px;
+    }
 }

@@ -6,6 +6,7 @@
 export type ProductCategory = "pet" | "pph" | "ccp";
 
 export interface Product {
+  // --- Core fields (from the supplier packing list — always present) ---
   slug: string;
   code: string;
   category: ProductCategory;
@@ -16,7 +17,27 @@ export interface Product {
   features: string[];
   image: string;
   images?: string[];
+
+  // --- Product-detail-page fields (optional — the product page falls back
+  // to sensible defaults when these are missing, so any SKU can be enriched
+  // individually without touching the rest) ---
+  description?: string;
+  specRows?: { label: string; value: string }[];
+  thickness?: string;
+  warranty?: string;
+  whyPoints?: string[];
+  applications?: { label: string; image: string }[];
+  careInstructions?: string[];
+  bestSeller?: boolean;
+
+  // --- Option-picker fields used on the product page (size/thickness/color
+  // pickers) — optional, same reasoning as above ---
+  sizes?: string[];
+  thicknesses?: string[];
+  colors?: { name: string; hex: string }[];
+  badges?: ("water" | "termite" | "scratch" | "warp" | "maintenance")[];
 }
+
 export const products: Product[] = [
  {
   slug: "26p1-10-lb205",
