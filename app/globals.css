@@ -314,14 +314,14 @@ body::before{
     max-width:1440px;
 
     margin:0 auto;
-
-    padding:9px 40px;
+/* 
+    padding:0px 20px; */
 
     display:flex;
    
     align-items:center;
 
-    justify-content:space-between;
+    justify-content:end;
 
     gap:20px;
 }

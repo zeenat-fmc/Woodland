@@ -364,9 +364,9 @@ export default function HomePage() {
               <span className="wl-eyebrow">Doors, Redefined</span>
 
               <h1 className="wl-hero__title serif">
-                Engineered Doors
+              Silk-Smooth Surfaces 
                 <br />
-                Made for <em className="wl-accent">Pakistan</em>
+               Crafted for  <em className="wl-accent">Luxury Living</em>
               </h1>
 
               <p className="wl-hero__sub">
@@ -485,7 +485,7 @@ export default function HomePage() {
         {/* ==================================================
             CREDIBILITY BAR
             ================================================== */}
-        <section className="wl-cred">
+        {/* <section className="wl-cred">
           <div className="wl-container">
             <ul className="wl-cred__grid stagger-grid">
               {CRED_ITEMS.map((c) => (
@@ -500,7 +500,43 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
-        </section>
+        </section> */}
+        <section className="wl-cred">
+  <div className="wl-container">
+    <div className="wl-cred__track">
+      
+      <ul className="wl-cred__grid">
+        {CRED_ITEMS.map((c) => (
+          <li className="wl-cred__item" key={c.label}>
+            <strong className="serif">
+              {c.value}
+              {c.unit && <i>{c.unit}</i>}
+            </strong>
+
+            <b>{c.label}</b>
+            <span>{c.sub}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* Duplicate for seamless loop */}
+      <ul className="wl-cred__grid" aria-hidden="true">
+        {CRED_ITEMS.map((c) => (
+          <li className="wl-cred__item" key={`duplicate-${c.label}`}>
+            <strong className="serif">
+              {c.value}
+              {c.unit && <i>{c.unit}</i>}
+            </strong>
+
+            <b>{c.label}</b>
+            <span>{c.sub}</span>
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  </div>
+</section>
 
         {/* ==================================================
             COLLECTION

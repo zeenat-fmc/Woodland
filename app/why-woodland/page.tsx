@@ -20,7 +20,7 @@ const comparisons = [
   {
     title: "Timber doors",
     text: "Natural wood swells, cracks and needs repainting within a few seasons especially in humid or monsoon-heavy conditions.",
-    us: "Engineered PET, PPH and CCP panels are sealed to stay finished, with no repainting required.",
+    us: "Advanced PET, PPH and CCP panels are sealed to stay finished, with no repainting required.",
   },
   {
     title: "Off-the-shelf hardware",
@@ -35,7 +35,7 @@ const comparisons = [
 ];
 
 const reasons = [
-  { num: "01", title: "Engineered, not grown", text: "PET, PPH and CCP panels are built to resist Pakistan's heat, humidity and monsoon seasons without the natural variance or maintenance timber demands." },
+  { num: "01", title: "Crafted, not grown", text: "PET, PPH and CCP panels are built to resist Pakistan's heat, humidity and monsoon seasons without the natural variance or maintenance timber demands." },
   { num: "02", title: "Consistent from showroom to site", text: "What you approve in the showroom is exactly what arrives and is installed no surprises in colour, texture or finish." },
   { num: "03", title: "One team, start to finish", text: "The same team that manufactures your door also fits the lock, handles and hinges nothing is outsourced." },
   { num: "04", title: "Built for how you actually live", text: "From wet-area bathrooms to high-traffic interiors, every material is chosen for the room it's going into, not a generic standard." },
@@ -45,8 +45,7 @@ export default function WhyWoodlandPage() {
   return (
     <>
       <Loader />
-       <Nav active="why-woodland" />
-
+      <Nav active="why-woodland" />
       {/* HERO */}
       <section className="page-hero">
         <div className="page-hero-bg">
@@ -121,17 +120,17 @@ export default function WhyWoodlandPage() {
             <span className="eyebrow">See It Yourself</span>
             <h2 className="serif">Visit the showroom or ask us directly.</h2>
           </div>
-     <a     
-  href={waLink("...")}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="about-whatsapp"
->
-  <span className="about-whatsapp-icon">
-    <IconWhatsApp />
-  </span>
-  Ask Us on WhatsApp
-</a>
+          <a
+            href={waLink("...")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-whatsapp"
+          >
+            <span className="about-whatsapp-icon">
+              <IconWhatsApp />
+            </span>
+            Ask Us on WhatsApp
+          </a>
         </div>
       </section>
 
