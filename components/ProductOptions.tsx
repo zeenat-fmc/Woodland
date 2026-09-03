@@ -93,8 +93,8 @@ function BadgeIcon({ type }: { type: string }) {
 
 function TrustIcon({ type }: { type: string }) {
   const p = {
-    width: 20,
-    height: 20,
+    width: 32,
+    height: 32,
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
@@ -239,7 +239,7 @@ export default function ProductOptions({ product }: ProductOptionsProps) {
       </div>
 
       {/* QUANTITY */}
-      <div className="option-group">
+      {/* <div className="option-group">
         <h5>Quantity</h5>
         <div className="quantity-control">
           <button
@@ -258,7 +258,7 @@ export default function ProductOptions({ product }: ProductOptionsProps) {
             +
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* CTA */}
       <div className="product-cta-row">
@@ -294,7 +294,7 @@ export default function ProductOptions({ product }: ProductOptionsProps) {
       </div>
 
       {/* TRUST STRIP */}
-      <div className="trust-strip">
+      <div className="trust-strip" style={{padding:"30px"}}>
         <div className="trust-item">
           <TrustIcon type="factory" />
           <span>

@@ -271,7 +271,7 @@ export default function ProductPage({
               <p>
                 {product.materialShort} doors offer a perfect blend of
                 strength, style and stability. They are moisture proof,
-                termite proof and highly durable — making them ideal for
+                termite proof and highly durable making them ideal for
                 premium spaces.
               </p>
               <ul className="why-list">
